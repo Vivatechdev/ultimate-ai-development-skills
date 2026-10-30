@@ -74,3 +74,4 @@ When provisioning a Linux server (Ubuntu/Debian) for Tier 1 deployments, apply t
    - Install `fail2ban` to ban IP addresses exhibiting repeated SSH brute-force failures.
 4. **Automated SSL via Caddy or Certbot:**
    - Caddy handles automatic Let's Encrypt / ZeroSSL certificate issuance, renewal, and HTTP-to-HTTPS redirects with zero manual cron configuration.
+

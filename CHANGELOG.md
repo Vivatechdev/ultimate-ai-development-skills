@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`api-and-payment-integration`**:
+  - `SKILL.md`: Integration engineering workflow covering REST/GraphQL, OAuth 2.0 PKCE, Paystack, Flutterwave, Stripe, and webhook hardening.
+  - `references/payment-providers-playbook.md`: Detailed guides for Paystack (HMAC-SHA512), Flutterwave (verif-hash), and Stripe (PaymentIntents & HMAC-SHA256).
+  - `references/resilient-api-patterns.md`: Exponential backoff with full jitter, idempotency keys, request timeouts, and circuit breakers.
+  - `references/oauth2-and-webhook-security.md`: OAuth PKCE flow, raw-body preservation rules, and constant-time HMAC comparison.
+  - `examples/payment-gateway-testbed/`: Complete multi-provider testbed (`gateway-adapters.js`, `resilient-client.js`, `order-service.js`, `test-payments.js`).
 - Completed and verified skill **`devops-deployment`**:
   - `SKILL.md`: DevOps engineering workflow covering cost-appropriate infrastructure tiering, multi-stage Docker builds, zero-downtime CI/CD, and post-deployment smoke tests.
   - `references/infrastructure-tier-selection-matrix.md`: Sizing matrix matching scale/budget to Tier 1 ($5–$40/mo VPS), Tier 2 ($20–$250/mo PaaS/Cloud Run), and Tier 3 ($300+/mo K8s).

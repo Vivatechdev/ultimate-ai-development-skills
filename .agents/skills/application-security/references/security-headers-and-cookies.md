@@ -44,3 +44,4 @@ Set-Cookie: session_id=s_984f7e2a; Path=/; Max-Age=604800; HttpOnly; Secure; Sam
 | **`SameSite=Lax`** (or `Strict`)| Forbids browser from sending cookie on cross-site requests, mitigating Cross-Site Request Forgery (CSRF). |
 | **`Path=/`** | Confines cookie to the root path. |
 | **`Max-Age` / `Expires`** | Implements deterministic expiration (e.g. 7 days). |
+

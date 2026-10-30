@@ -100,3 +100,4 @@ This checklist aligns with the **OWASP Top 10 (2021)** and the **OWASP Applicati
 - [ ] Automated, encrypted database backups running on daily and point-in-time schedules.
 - [ ] Backups stored in geographically distinct, write-once (WORM / Object Lock) cloud storage.
 - [ ] Periodic restore drills executed and documented to verify Recovery Time Objective (RTO) and Recovery Point Objective (RPO).
+

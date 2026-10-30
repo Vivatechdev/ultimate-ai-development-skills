@@ -237,3 +237,4 @@ An application security engagement is complete when:
 3. All authorized fixes are implemented in source code and verified using regression exploit tests.
 4. Production security headers and cookie flags are active.
 5. A scoped security certification report is compiled.
+

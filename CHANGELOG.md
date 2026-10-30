@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`saas-product-architect`**:
+  - `SKILL.md`: End-to-end SaaS product architecture methodology covering 15 strategic dimensions, PRD authoring, MoSCoW MVP scoping, multi-tenancy, and unit economics.
+  - `references/multi-tenant-data-architecture.md`: Tenant isolation models (Pooled with PostgreSQL RLS vs Schema vs Silo) and tenant resolution mechanics.
+  - `references/subscription-and-billing-engine.md`: 5-state recurring subscription lifecycle, feature entitlement gating, idempotent webhook synchronization, and dunning.
+  - `references/prd-and-mvp-framework.md`: Standardized SaaS PRD template, 5-stage user journey mapping, and COGS/gross margin modeling ($\ge 75\%$).
+  - `examples/saas-architecture-spec/`: Complete production blueprint (`blueprint.md`), multi-tenant PostgreSQL DDL (`schema.sql`), and automated verification test runner (`test-architecture.js`).
 - Completed and verified skill **`application-security`**:
   - `SKILL.md`: Security engineering workflow covering the 17 core pillars, CVSS 3.1 triage, threat modeling (STRIDE), and scoped security certifications.
   - `references/owasp-top-10-and-asvs-checklist.md`: Comprehensive audit checklist mapped against OWASP Top 10 (2021) and ASVS v4.0.

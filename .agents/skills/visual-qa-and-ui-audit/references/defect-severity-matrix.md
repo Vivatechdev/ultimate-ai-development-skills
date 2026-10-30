@@ -40,3 +40,4 @@ A visual QA engineer does not merely file reports; when authorized, you remediat
 2. **Apply Minimal Targeted Fix:** Change only the rules necessary to resolve the defect. Avoid shotgun styling (`!important` or wrapping everything in `overflow-hidden`).
 3. **Reinspect Affected Viewports:** Re-run the inspection on the specific viewport where the defect was reported.
 4. **Execute Multi-Viewport Regression Check:** Verify that the fix did not inadvertently break the layout on the other 4 standard viewports (375px, 390px, 768px, 1280px, 1440px).
+

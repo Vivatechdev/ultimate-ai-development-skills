@@ -1,0 +1,107 @@
+/**
+ * Design System Tokens (3-Tier DTCG Architecture)
+ */
+
+:root {
+  /* ================= TIER 1: GLOBAL PRIMITIVES ================= */
+  --ds-primitives-slate-50: #F8FAFC;
+  --ds-primitives-slate-100: #F1F5F9;
+  --ds-primitives-slate-200: #E2E8F0;
+  --ds-primitives-slate-300: #CBD5E1;
+  --ds-primitives-slate-600: #475569;
+  --ds-primitives-slate-700: #334155;
+  --ds-primitives-slate-900: #0F172A;
+
+  --ds-primitives-blue-500: #3B82F6;
+  --ds-primitives-blue-600: #2563EB;
+  --ds-primitives-blue-700: #1D4ED8;
+
+  --ds-primitives-emerald-600: #059669;
+  --ds-primitives-emerald-700: #047857;
+
+  --ds-primitives-red-600: #DC2626;
+  --ds-primitives-red-700: #B91C1C;
+
+  /* Spacing Scale (8pt grid with 4pt half-steps) */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-space-12: 48px;
+
+  /* Typography Scales */
+  --ds-font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --ds-font-family-mono: 'JetBrains Mono', monospace;
+  --ds-font-size-xs: 0.75rem;   /* 12px */
+  --ds-font-size-sm: 0.875rem;  /* 14px */
+  --ds-font-size-base: 1.0rem;  /* 16px */
+  --ds-font-size-lg: 1.125rem;  /* 18px */
+  --ds-font-size-xl: 1.25rem;   /* 20px */
+  --ds-font-size-2xl: 1.5rem;   /* 24px */
+  --ds-font-size-3xl: 2.0rem;   /* 32px */
+
+  --ds-tracking-tight: -0.025em;
+  --ds-tracking-wide: 0.06em;
+
+  /* Radii */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 6px;
+  --ds-radius-lg: 8px;
+  --ds-radius-full: 9999px;
+
+  /* Z-Index Hierarchy */
+  --ds-z-canvas: 0;
+  --ds-z-sticky: 100;
+  --ds-z-drawer: 200;
+  --ds-z-modal-backdrop: 300;
+  --ds-z-modal-dialog: 310;
+  --ds-z-toast: 400;
+
+  /* ================= TIER 2: SEMANTIC ALIASES (LIGHT MODE) ================= */
+  --ds-surface-canvas: var(--ds-primitives-slate-50);
+  --ds-surface-card: #FFFFFF;
+  --ds-surface-elevated: #FFFFFF;
+  --ds-surface-hover: var(--ds-primitives-slate-100);
+
+  --ds-text-primary: var(--ds-primitives-slate-900);
+  --ds-text-muted: var(--ds-primitives-slate-700);
+  --ds-text-subtle: var(--ds-primitives-slate-600);
+  --ds-text-inverse: #FFFFFF;
+
+  --ds-border-default: var(--ds-primitives-slate-200);
+  --ds-border-strong: var(--ds-primitives-slate-900);
+
+  --ds-interactive-primary: var(--ds-primitives-blue-600);
+  --ds-interactive-primary-hover: var(--ds-primitives-blue-700);
+
+  --ds-status-success: var(--ds-primitives-emerald-600);
+  --ds-status-danger: var(--ds-primitives-red-600);
+
+  --ds-focus-ring: var(--ds-primitives-blue-600);
+}
+
+/* ================= TIER 2: SEMANTIC ALIASES (DARK MODE) ================= */
+[data-theme="dark"] {
+  --ds-surface-canvas: #0B0C0E;
+  --ds-surface-card: #131418;
+  --ds-surface-elevated: #1B1C22;
+  --ds-surface-hover: #22232A;
+
+  --ds-text-primary: #F8FAFC;
+  --ds-text-muted: #94A3B8;
+  --ds-text-subtle: #64748B;
+  --ds-text-inverse: #0B0C0E;
+
+  --ds-border-default: #1E222B;
+  --ds-border-strong: #334155;
+
+  --ds-interactive-primary: #3B82F6;
+  --ds-interactive-primary-hover: #60A5FA;
+
+  --ds-status-success: #10B981;
+  --ds-status-danger: #EF4444;
+
+  --ds-focus-ring: #3B82F6;
+}

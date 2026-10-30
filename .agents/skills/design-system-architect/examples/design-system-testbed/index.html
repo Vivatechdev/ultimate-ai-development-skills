@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Architecture — Living Component Testbed</title>
+  
+  <link rel="stylesheet" href="tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['selector', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            canvas: 'var(--ds-surface-canvas)',
+            surface: 'var(--ds-surface-card)',
+            elevated: 'var(--ds-surface-elevated)',
+            hover: 'var(--ds-surface-hover)',
+            primary: 'var(--ds-text-primary)',
+            muted: 'var(--ds-text-muted)',
+            subtle: 'var(--ds-text-subtle)',
+            'border-base': 'var(--ds-border-default)',
+            'interactive-primary': 'var(--ds-interactive-primary)',
+            'interactive-hover': 'var(--ds-interactive-primary-hover)',
+            danger: 'var(--ds-status-danger)',
+            success: 'var(--ds-status-success)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: var(--ds-surface-canvas);
+      color: var(--ds-text-primary);
+      font-family: var(--ds-font-family-sans);
+    }
+    :focus-visible {
+      outline: 2px solid var(--ds-focus-ring) !important;
+      outline-offset: 2px !important;
+    }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="min-h-screen p-6 md:p-12 transition-colors duration-200">
+
+  <div class="max-w-5xl mx-auto space-y-12">
+    <!-- Header with Live Theme Toggle -->
+    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-border-base">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-muted">Architectural Specification v1.0</span>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-primary mt-1">Design System Component Testbed</h1>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-mono text-muted">Active Theme:</span>
+        <button id="theme-toggle" class="min-w-[44px] min-h-[44px] px-4 py-2 text-xs font-mono font-medium rounded-md bg-surface border border-border-base hover:bg-hover active:scale-[0.98] transition-all">
+          Toggle Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Pillar 8: Buttons & Interactive Variants Matrix -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold tracking-tight">1. Button Variant Matrix (CVA Pattern)</h2>
+      <div class="p-6 bg-surface border border-border-base rounded-lg space-y-6">
+        <!-- Variant Rows -->
+        <div class="flex flex-wrap items-center gap-4">
+          <!-- Primary -->
+          <button class="min-h-[44px] px-5 py-2.5 text-sm font-medium rounded-md bg-interactive-primary text-white hover:bg-interactive-hover active:scale-[0.98] transition-all disabled:opacity-50">
+            Primary Action
+          </button>
+          <!-- Secondary -->
+          <button class="min-h-[44px] px-5 py-2.5 text-sm font-medium rounded-md bg-surface border border-border-base text-primary hover:bg-hover active:scale-[0.98] transition-all">
+            Secondary Action
+          </button>
+          <!-- Destructive -->
+          <button class="min-h-[44px] px-5 py-2.5 text-sm font-medium rounded-md bg-danger text-white hover:opacity-90 active:scale-[0.98] transition-all">
+            Destructive
+          </button>
+          <!-- Disabled State -->
+          <button disabled class="min-h-[44px] px-5 py-2.5 text-sm font-medium rounded-md bg-interactive-primary text-white opacity-50 cursor-not-allowed">
+            Disabled State
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pillar 8: Accessible Compound Form Control -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold tracking-tight">2. Accessible Form Field Compound Pattern</h2>
+      <div class="p-6 bg-surface border border-border-base rounded-lg max-w-lg space-y-4">
+        <form id="sample-form" class="space-y-4">
+          <div class="space-y-1.5">
+            <label for="tenant-id" class="block text-xs font-semibold uppercase tracking-wider text-muted">
+              Workspace Identifier <span class="text-danger" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="tenant-id"
+              required
+              aria-describedby="tenant-desc tenant-error"
+              aria-invalid="false"
+              placeholder="e.g. acme-systems"
+              class="w-full min-h-[44px] px-3.5 py-2 text-sm bg-surface border border-border-base rounded-md text-primary placeholder:text-subtle focus:outline-none transition-colors"
+            />
+            <p id="tenant-desc" class="text-xs text-muted">
+              Alphanumeric characters and hyphens only.
+            </p>
+            <p id="tenant-error" class="hidden text-xs font-medium text-danger" role="alert">
+              Identifier cannot be empty or contain spaces.
+            </p>
+          </div>
+
+          <button type="submit" class="min-h-[44px] px-5 py-2 text-xs font-mono font-medium rounded-md bg-interactive-primary text-white hover:bg-interactive-hover active:scale-[0.98] transition-all">
+            Validate Field
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Pillar 10: Tables & Data Display -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold tracking-tight">3. Data Table with Tabular Number Alignment</h2>
+      <div class="bg-surface border border-border-base rounded-lg overflow-x-auto">
+        <table class="w-full text-left text-xs font-mono">
+          <thead class="bg-hover border-b border-border-base text-muted uppercase tracking-wider">
+            <tr>
+              <th scope="col" class="py-3 px-4 font-semibold">Service Node</th>
+              <th scope="col" class="py-3 px-4 font-semibold">Region</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-right">P99 Latency</th>
+              <th scope="col" class="py-3 px-4 font-semibold text-right">Throughput</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border-base text-primary">
+            <tr class="hover:bg-hover transition-colors">
+              <td class="py-3.5 px-4 font-semibold">auth-gateway-01</td>
+              <td class="py-3.5 px-4 text-muted">us-east-1</td>
+              <td class="py-3.5 px-4 text-right tabular-nums font-semibold">1.4 ms</td>
+              <td class="py-3.5 px-4 text-right tabular-nums">48,200 req/s</td>
+            </tr>
+            <tr class="hover:bg-hover transition-colors">
+              <td class="py-3.5 px-4 font-semibold">billing-processor-02</td>
+              <td class="py-3.5 px-4 text-muted">eu-west-1</td>
+              <td class="py-3.5 px-4 text-right tabular-nums font-semibold">4.8 ms</td>
+              <td class="py-3.5 px-4 text-right tabular-nums">12,450 req/s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Pillar 11: Accessible Modal Overlay -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold tracking-tight">4. Modal & Overlay Lifecycle (Focus Trap & Escape)</h2>
+      <div class="p-6 bg-surface border border-border-base rounded-lg">
+        <button id="open-modal" class="min-h-[44px] px-5 py-2.5 text-sm font-medium rounded-md bg-surface border border-border-base text-primary hover:bg-hover transition-all">
+          Trigger Modal Dialog
+        </button>
+      </div>
+    </section>
+
+    <!-- Modal Dialog Container (DOM Portal Simulation) -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/60 z-[var(--ds-z-modal-backdrop)] hidden flex items-center justify-center p-4">
+      <div
+        id="modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        class="bg-elevated border border-border-base rounded-lg max-w-md w-full p-6 shadow-xl space-y-4 z-[var(--ds-z-modal-dialog)]"
+      >
+        <div class="flex justify-between items-center">
+          <h3 id="modal-title" class="text-lg font-bold text-primary">System Notification</h3>
+          <button id="close-modal-x" aria-label="Close dialog" class="min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-muted hover:text-primary">
+            ✕
+          </button>
+        </div>
+        <p class="text-sm text-muted">
+          This dialog demonstrates focus trapping, Escape dismissal, and background scroll locking adhering to WCAG 2.2 modal guidelines.
+        </p>
+        <div class="flex justify-end gap-3 pt-2">
+          <button id="close-modal-btn" class="min-h-[44px] px-4 py-2 text-xs font-mono font-medium rounded-md bg-interactive-primary text-white">
+            Acknowledge
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. Theme Switcher (Light / Dark)
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn?.addEventListener('click', () => {
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeBtn.textContent = isDark ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+
+    // 2. Form Field Validation
+    const form = document.getElementById('sample-form');
+    const input = document.getElementById('tenant-id');
+    const errorMsg = document.getElementById('tenant-error');
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = input.value.trim();
+      if (!val || val.includes(' ')) {
+        input.setAttribute('aria-invalid', 'true');
+        input.classList.add('border-danger');
+        errorMsg.classList.remove('hidden');
+      } else {
+        input.setAttribute('aria-invalid', 'false');
+        input.classList.remove('border-danger');
+        errorMsg.classList.add('hidden');
+        alert('Validation Successful: ' + val);
+      }
+    });
+
+    // 3. Modal Overlay Lifecycle (Focus Restoration & Escape Key)
+    const openBtn = document.getElementById('open-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const closeX = document.getElementById('close-modal-x');
+
+    function openModal() {
+      backdrop.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      backdrop.classList.add('hidden');
+      document.body.style.overflow = '';
+      openBtn.focus();
+    }
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    closeX?.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

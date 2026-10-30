@@ -124,3 +124,4 @@ if (remainingIssues.length === 0) {
   console.error('[FAIL] Remaining issues:', remainingIssues);
   process.exit(1);
 }
+

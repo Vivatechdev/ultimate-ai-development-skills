@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`design-system-architect`**:
+  - `SKILL.md`: End-to-end design system methodology covering 15 core pillars, 3-tier DTCG token hierarchy, and non-destructive project integration.
+  - `references/token-architecture-and-theming.md`: Multi-tier token specification (primitives, semantic aliases, component tokens), light/dark theming engine, and elevation/z-index scales.
+  - `references/component-composition-patterns.md`: Headless behavioral primitives, CVA variant patterns, compound form field anatomy, and modal/overlay focus lifecycle.
+  - `references/system-inspection-and-extension.md`: Pre-flight project discovery protocols, token conflict avoidance matrix, additive extension rules, and deprecation lifecycle.
+  - `examples/design-system-testbed/`: Complete living component testbed (`index.html`, `tokens.css`) and automated architectural verification suite (`test-runner.js`).
 - Completed and verified skill **`visual-qa-and-ui-audit`**:
   - `SKILL.md`: 8-step visual QA and remediation procedure across 5 standard viewport widths (375px, 390px, 768px, 1280px, 1440px).
   - `references/visual-audit-checklist.md`: 14-point category audit checklist covering typography, alignment, contrast, touch targets, and overflow.

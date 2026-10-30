@@ -149,3 +149,4 @@ if (typeof module !== 'undefined' && require.main === module) {
 if (typeof window !== 'undefined') {
   window.__runVisualQAAudit = runBrowserVisualAudit;
 }
+

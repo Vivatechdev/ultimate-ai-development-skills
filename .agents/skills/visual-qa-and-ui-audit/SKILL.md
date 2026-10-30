@@ -227,3 +227,4 @@ A visual QA audit session is complete when:
 2. Discovered defects are cataloged, root causes isolated, and prioritized.
 3. All authorized fixes are implemented, re-tested, and verified to cause zero regressions.
 4. The final sign-off checklist is fully satisfied with verified evidence.
+

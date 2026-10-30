@@ -48,3 +48,4 @@ This document details the operational requirements, failure modes, and verificat
   1. *Unconstrained Stretching:* Content spanning the full 1440px without a `max-w` constraint, resulting in unreadable 180-character line lengths.
   2. *Awkward Centering Gaps:* Hero sections floating detached with massive, unintended negative margins on either side.
 - **Verification Rule:** Verify that main content containers apply `max-w-6xl`, `max-w-7xl`, or equivalent responsive boundaries with `mx-auto`.
+

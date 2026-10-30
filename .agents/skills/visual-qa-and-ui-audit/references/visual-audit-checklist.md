@@ -97,3 +97,4 @@ Every web application or page must pass this rigorous 14-point audit across all 
 - [ ] `document.documentElement.scrollWidth <= window.innerWidth` across all 5 target viewports.
 - [ ] Zero accidental horizontal scrollbars on mobile viewports.
 - [ ] Unbounded preformatted code blocks, data tables, or long URLs use `overflow-x-auto` or `break-words`.
+

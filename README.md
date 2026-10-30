@@ -56,7 +56,7 @@ Antigravity-Skills/
 | :--- | :--- | :---: | :--- |
 | **`ui-ux-design-mastery`** | UI/UX & Interaction | ✅ Verified | Crafting visually polished, intuitive interfaces with balanced typography, hierarchy, and micro-interactions. Eliminates generic AI aesthetics. |
 | **`visual-qa-and-ui-audit`** | Quality Assurance | ✅ Verified | Rigorous automated & visual inspection of responsive layouts, viewport edge cases (375px–1440px), defect triage, and code remediation. |
-| **`design-system-architect`** | Design Systems | ⏳ Planned | Structuring design tokens, headless accessible components, theming layers, and semantic primitives. |
+| **`design-system-architect`** | Design Systems | ✅ Verified | Structuring 3-tier design tokens, headless accessible components, theming layers (light/dark), and non-destructive project integration. |
 | **`senior-fullstack-engineer`** | Architecture | ⏳ Planned | Idiomatic application architecture, state management, API design, caching, and clean separation of concerns. |
 | **`application-security`** | DevSecOps & Security | ⏳ Planned | Vulnerability remediation (OWASP Top 10), authentication flows, input validation, and credential security. |
 | **`testing-and-debugging`** | Testing & Diagnostics | ⏳ Planned | Unit, integration, and E2E test strategy, systematic root-cause analysis (RCA), and deterministic bug reproduction. |

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vanguard Dynamics — Industrial Robotics & Energy Architecture</title>
-  <meta name="description" content="Precision control systems, distributed robotics, and resilient grid infrastructure for high-throughput enterprise manufacturing." />
-  
+  <meta name="description"
+    content="Precision control systems, distributed robotics, and resilient grid infrastructure for high-throughput enterprise manufacturing." />
+
   <!-- Typography: Space Grotesk (Display), Inter (Body), JetBrains Mono (Technical) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,9 +48,17 @@
 
   <style>
     /* Custom mathematical typography tracking & tabular numbers */
-    .tracking-display { letter-spacing: -0.035em; }
-    .tracking-label { letter-spacing: 0.08em; }
-    .tabular-nums { font-variant-numeric: tabular-nums; }
+    .tracking-display {
+      letter-spacing: -0.035em;
+    }
+
+    .tracking-label {
+      letter-spacing: 0.08em;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
 
     /* Focus ring standard */
     :focus-visible {
@@ -57,16 +69,18 @@
     /* Subtle hair-line grid pattern (subtle engineering alignment lines, not glowing blobs) */
     .bg-grid-pattern {
       background-size: 32px 32px;
-      background-image: 
+      background-image:
         linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     }
   </style>
 </head>
+
 <body class="bg-canvas text-ink font-sans antialiased selection:bg-accent selection:text-white">
 
   <!-- ================= TOP STATUS BAR (Engineering Context) ================= -->
-  <div class="border-b border-border bg-surface text-ink-subtle text-xs py-1.5 px-4 sm:px-8 flex justify-between items-center font-mono">
+  <div
+    class="border-b border-border bg-surface text-ink-subtle text-xs py-1.5 px-4 sm:px-8 flex justify-between items-center font-mono">
     <div class="flex items-center gap-3">
       <span class="inline-flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-emerald"></span>
@@ -87,7 +101,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
       <!-- Brand Logo & Identity -->
       <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
-        <div class="w-8 h-8 bg-ink text-white flex items-center justify-center font-display font-bold text-lg rounded-sm transition-transform duration-150 group-hover:scale-95">
+        <div
+          class="w-8 h-8 bg-ink text-white flex items-center justify-center font-display font-bold text-lg rounded-sm transition-transform duration-150 group-hover:scale-95">
           V
         </div>
         <div class="leading-none">
@@ -106,16 +121,19 @@
 
       <!-- Desktop CTA -->
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#telemetry" class="px-4 py-2 text-xs font-mono font-medium text-ink bg-surface-subtle border border-border hover:bg-surface hover:border-ink transition-all duration-150 rounded-sm">
+        <a href="#telemetry"
+          class="px-4 py-2 text-xs font-mono font-medium text-ink bg-surface-subtle border border-border hover:bg-surface hover:border-ink transition-all duration-150 rounded-sm">
           Terminal Access
         </a>
-        <a href="#inquire" class="px-4 py-2 text-xs font-mono font-medium text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all duration-150 rounded-sm">
+        <a href="#inquire"
+          class="px-4 py-2 text-xs font-mono font-medium text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all duration-150 rounded-sm">
           Schedule Briefing
         </a>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 text-ink hover:bg-surface-subtle rounded border border-border">
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu"
+        class="md:hidden p-2 text-ink hover:bg-surface-subtle rounded border border-border">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -123,7 +141,8 @@
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden border-b border-border bg-surface px-6 py-4 space-y-3 font-mono text-sm">
+    <div id="mobile-menu"
+      class="hidden md:hidden border-b border-border bg-surface px-6 py-4 space-y-3 font-mono text-sm">
       <a href="#systems" class="block py-2 text-ink-muted hover:text-ink">Robotic Systems</a>
       <a href="#architecture" class="block py-2 text-ink-muted hover:text-ink">Grid Architecture</a>
       <a href="#benchmarks" class="block py-2 text-ink-muted hover:text-ink">Verified Benchmarks</a>
@@ -140,10 +159,11 @@
     <!-- ================= HERO SECTION (Asymmetric Swiss / Industrial) ================= -->
     <section class="border-b border-border bg-canvas bg-grid-pattern py-16 sm:py-24 px-4 sm:px-8">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        
+
         <!-- Left: Editorial Narrative & Command (7 Cols) -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-sm font-mono text-xs text-ink-muted">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-sm font-mono text-xs text-ink-muted">
             <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
             <span>SYSTEM SPECIFICATION: REV 2026.4</span>
           </div>
@@ -153,15 +173,19 @@
           </h1>
 
           <p class="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl">
-            Vanguard Dynamics builds fault-tolerant microgrids and robotic kinetic actuators. Engineered for high-throughput heavy manufacturing facilities that cannot tolerate single-phase drops or unverified control loops.
+            Vanguard Dynamics builds fault-tolerant microgrids and robotic kinetic actuators. Engineered for
+            high-throughput heavy manufacturing facilities that cannot tolerate single-phase drops or unverified control
+            loops.
           </p>
 
           <!-- Action Pair with High Contrast -->
           <div class="flex flex-wrap items-center gap-4 pt-4">
-            <a href="#inquire" class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-white bg-ink hover:bg-black active:translate-y-px transition-all rounded-sm shadow-sm">
+            <a href="#inquire"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-white bg-ink hover:bg-black active:translate-y-px transition-all rounded-sm shadow-sm">
               Deploy Testbed Cluster &rarr;
             </a>
-            <a href="#specifications" class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-ink bg-surface border border-border hover:border-ink active:translate-y-px transition-all rounded-sm">
+            <a href="#specifications"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-ink bg-surface border border-border hover:border-ink active:translate-y-px transition-all rounded-sm">
               Download Architecture Spec [PDF]
             </a>
           </div>
@@ -221,7 +245,8 @@
               <span class="text-emerald font-semibold">STABLE</span>
             </div>
             <svg class="w-full h-12 stroke-accent fill-none" viewBox="0 0 300 48">
-              <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M0,24 Q25,22 50,26 T100,23 T150,25 T200,24 T250,26 L300,24" />
+              <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                d="M0,24 Q25,22 50,26 T100,23 T150,25 T200,24 T250,26 L300,24" />
               <line x1="0" y1="24" x2="300" y2="24" stroke="#E2E2DC" stroke-dasharray="3 3" stroke-width="1" />
             </svg>
             <div class="flex justify-between text-[10px] text-ink-subtle pt-1">
@@ -234,7 +259,8 @@
           <!-- Interactive Control Switch -->
           <div class="pt-2 flex items-center justify-between border-t border-border">
             <span class="text-[11px] text-ink-muted">Diagnostic Feedback Loop:</span>
-            <button id="toggle-sim" class="px-3 py-1.5 bg-surface-subtle hover:bg-border text-ink font-medium text-[11px] rounded transition-colors duration-150">
+            <button id="toggle-sim"
+              class="px-3 py-1.5 bg-surface-subtle hover:bg-border text-ink font-medium text-[11px] rounded transition-colors duration-150">
               Run Self-Test
             </button>
           </div>
@@ -246,31 +272,39 @@
     <!-- ================= TECHNICAL CAPABILITIES (Asymmetrical Tabbed Inspector) ================= -->
     <section id="systems" class="py-20 px-4 sm:px-8 border-b border-border bg-surface">
       <div class="max-w-7xl mx-auto space-y-12">
-        
+
         <div class="max-w-2xl space-y-3">
-          <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Architectural Modules</span>
+          <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Architectural
+            Modules</span>
           <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-display text-ink">
             Engineered for physical deterministic safety.
           </h2>
           <p class="text-ink-muted text-base leading-relaxed">
-            Eliminate non-deterministic failures in automated lines. Each subsystem operates on dual-redundant microkernels with zero third-party cloud dependencies.
+            Eliminate non-deterministic failures in automated lines. Each subsystem operates on dual-redundant
+            microkernels with zero third-party cloud dependencies.
           </p>
         </div>
 
         <!-- Interactive Spec Tabs -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           <!-- Tab Navigation (4 cols) -->
           <div class="lg:col-span-4 space-y-2 font-mono" role="tablist" aria-label="Architectural Subsystems">
-            <button role="tab" id="tab-module-1" aria-selected="true" aria-controls="module-1" class="spec-tab active w-full text-left p-4 border border-ink bg-canvas rounded-sm transition-all text-xs font-semibold text-ink flex justify-between items-center" data-target="module-1">
+            <button role="tab" id="tab-module-1" aria-selected="true" aria-controls="module-1"
+              class="spec-tab active w-full text-left p-4 border border-ink bg-canvas rounded-sm transition-all text-xs font-semibold text-ink flex justify-between items-center"
+              data-target="module-1">
               <span>01 / KINETIC DRIVES</span>
               <span class="text-[10px] text-ink-subtle">&rarr;</span>
             </button>
-            <button role="tab" id="tab-module-2" aria-selected="false" aria-controls="module-2" class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center" data-target="module-2">
+            <button role="tab" id="tab-module-2" aria-selected="false" aria-controls="module-2"
+              class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center"
+              data-target="module-2">
               <span>02 / RESILIENT POWER BUS</span>
               <span class="text-[10px] text-ink-subtle">&rarr;</span>
             </button>
-            <button role="tab" id="tab-module-3" aria-selected="false" aria-controls="module-3" class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center" data-target="module-3">
+            <button role="tab" id="tab-module-3" aria-selected="false" aria-controls="module-3"
+              class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center"
+              data-target="module-3">
               <span>03 / ISOLATED TELEMETRY KERNEL</span>
               <span class="text-[10px] text-ink-subtle">&rarr;</span>
             </button>
@@ -281,10 +315,13 @@
             <div id="module-1" role="tabpanel" aria-labelledby="tab-module-1" class="tab-panel space-y-6">
               <div class="flex items-center justify-between border-b border-border pb-4">
                 <h3 class="font-display text-xl font-bold text-ink">K-Series Direct-Drive Servos</h3>
-                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">PRECISION CLASS 0</span>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">PRECISION
+                  CLASS 0</span>
               </div>
               <p class="text-ink-muted text-sm leading-relaxed">
-                Direct electromagnetic coupling with no planetary backlash. Utilizing magnetic encoders with 28-bit absolute resolution, allowing micro-radian repeatable positioning under maximum dynamic torque reversals.
+                Direct electromagnetic coupling with no planetary backlash. Utilizing magnetic encoders with 28-bit
+                absolute resolution, allowing micro-radian repeatable positioning under maximum dynamic torque
+                reversals.
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
                 <div class="bg-surface p-4 border border-border rounded-sm">
@@ -305,10 +342,12 @@
             <div id="module-2" role="tabpanel" aria-labelledby="tab-module-2" class="tab-panel hidden space-y-6">
               <div class="flex items-center justify-between border-b border-border pb-4">
                 <h3 class="font-display text-xl font-bold text-ink">B-400 High-Density Busbars</h3>
-                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">SOLID STATE</span>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">SOLID
+                  STATE</span>
               </div>
               <p class="text-ink-muted text-sm leading-relaxed">
-                Liquid-cooled copper architecture capable of sustaining 1,200A peak discharge bursts with zero localized thermal pooling. Designed for instant sub-millisecond islanding during regional grid fluctuations.
+                Liquid-cooled copper architecture capable of sustaining 1,200A peak discharge bursts with zero localized
+                thermal pooling. Designed for instant sub-millisecond islanding during regional grid fluctuations.
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
                 <div class="bg-surface p-4 border border-border rounded-sm">
@@ -329,10 +368,12 @@
             <div id="module-3" role="tabpanel" aria-labelledby="tab-module-3" class="tab-panel hidden space-y-6">
               <div class="flex items-center justify-between border-b border-border pb-4">
                 <h3 class="font-display text-xl font-bold text-ink">Vanguard RTOS Kernel</h3>
-                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded-sm text-ink">FORMALLY VERIFIED</span>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded-sm text-ink">FORMALLY
+                  VERIFIED</span>
               </div>
               <p class="text-ink-muted text-sm leading-relaxed">
-                Microkernel architecture formally proven in Coq. Guarantees deterministic upper-bound scheduling latency on hard real-time control routines with physical memory separation.
+                Microkernel architecture formally proven in Coq. Guarantees deterministic upper-bound scheduling latency
+                on hard real-time control routines with physical memory separation.
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
                 <div class="bg-surface p-4 border border-border rounded-sm">
@@ -360,7 +401,8 @@
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div class="space-y-2">
-            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Empirical Benchmarks</span>
+            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Empirical
+              Benchmarks</span>
             <h2 class="font-display text-3xl font-bold tracking-display text-ink">
               Verified physical laboratory measurements.
             </h2>
@@ -387,7 +429,8 @@
                 <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 14 &mu;s</td>
                 <td class="py-3.5 px-4 text-right tabular-nums">480 rad/s&sup2;</td>
                 <td class="py-3.5 px-4 text-center">
-                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                  <span
+                    class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
                 </td>
               </tr>
               <tr class="hover:bg-canvas transition-colors">
@@ -396,7 +439,8 @@
                 <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 28 &mu;s</td>
                 <td class="py-3.5 px-4 text-right tabular-nums">1,200 A/ms</td>
                 <td class="py-3.5 px-4 text-center">
-                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                  <span
+                    class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
                 </td>
               </tr>
               <tr class="hover:bg-canvas transition-colors">
@@ -405,7 +449,8 @@
                 <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 0.8 &mu;s</td>
                 <td class="py-3.5 px-4 text-right tabular-nums">N/A (Compute)</td>
                 <td class="py-3.5 px-4 text-center">
-                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                  <span
+                    class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
                 </td>
               </tr>
             </tbody>
@@ -419,41 +464,37 @@
       <div class="max-w-4xl mx-auto">
         <div class="border border-border bg-canvas p-8 sm:p-12 rounded-sm shadow-sm space-y-8">
           <div class="space-y-2 border-b border-border pb-6">
-            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Confidential Engineering Inquiry</span>
+            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Confidential Engineering
+              Inquiry</span>
             <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-display text-ink">
               Schedule technical architecture consultation.
             </h2>
             <p class="text-ink-muted text-sm leading-relaxed">
-              Direct access to our senior hardware and control systems architects. We provide full NDA compliance prior to reviewing CAD files or facility electrical schematics.
+              Direct access to our senior hardware and control systems architects. We provide full NDA compliance prior
+              to reviewing CAD files or facility electrical schematics.
             </p>
           </div>
 
           <form id="consult-form" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              
+
               <!-- Work Email -->
               <div class="space-y-1.5">
                 <label for="work-email" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
                   Corporate Email <span class="text-crimson">*</span>
                 </label>
-                <input
-                  type="email"
-                  id="work-email"
-                  required
-                  placeholder="chief-engineer@company.com"
-                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
-                />
+                <input type="email" id="work-email" required placeholder="chief-engineer@company.com"
+                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all" />
               </div>
 
               <!-- Facility Throughput Tier -->
               <div class="space-y-1.5">
-                <label for="facility-tier" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
+                <label for="facility-tier"
+                  class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
                   Planned Deployment Scope <span class="text-crimson">*</span>
                 </label>
-                <select
-                  id="facility-tier"
-                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
-                >
+                <select id="facility-tier"
+                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all">
                   <option value="testbed">Laboratory Testbed (&lt; 5 Nodes)</option>
                   <option value="pilot">Pilot Manufacturing Line (5 - 25 Nodes)</option>
                   <option value="enterprise">Full Plant Retrofit (&gt; 25 Nodes)</option>
@@ -467,12 +508,9 @@
               <label for="notes" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
                 Electrical Bus & Cycle Target Notes
               </label>
-              <textarea
-                id="notes"
-                rows="3"
+              <textarea id="notes" rows="3"
                 placeholder="Specify peak current requirements, existing PLC protocols (EtherCAT, PROFINET), and installation timeframe..."
-                class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
-              ></textarea>
+                class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"></textarea>
             </div>
 
             <!-- Submit Button with Explicit Interactive & Loading State -->
@@ -481,11 +519,8 @@
                 <span class="w-2 h-2 rounded-full bg-emerald"></span>
                 <span>NDA Handshake Protocol Automated</span>
               </div>
-              <button
-                type="submit"
-                id="submit-btn"
-                class="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs font-semibold text-white bg-ink hover:bg-black active:scale-[0.98] transition-all rounded-sm disabled:opacity-50 disabled:pointer-events-none"
-              >
+              <button type="submit" id="submit-btn"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs font-semibold text-white bg-ink hover:bg-black active:scale-[0.98] transition-all rounded-sm disabled:opacity-50 disabled:pointer-events-none">
                 <span id="btn-text">Submit Architecture Review</span>
                 <svg id="btn-spinner" class="hidden animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -506,7 +541,8 @@
   <!-- ================= FOOTER ================= -->
   <footer class="bg-surface border-t border-border py-12 px-4 sm:px-8 font-mono text-xs text-ink-muted">
     <div class="max-w-7xl mx-auto space-y-8">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-border pb-8">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-border pb-8">
         <div>
           <span class="font-display font-bold text-base text-ink block">VANGUARD DYNAMICS</span>
           <span class="text-ink-subtle text-[11px]">Industrial Control Architecture & Autonomous Robotics</span>
@@ -579,7 +615,7 @@
 
     consultForm?.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       // Enter Loading State
       submitBtn.disabled = true;
       btnText.textContent = 'Verifying Credentials...';
@@ -614,4 +650,5 @@
     });
   </script>
 </body>
+
 </html>

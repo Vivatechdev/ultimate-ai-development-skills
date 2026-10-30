@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defective Layout Sample (Visual QA Testbed)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 p-6">
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-8">
+    <h1 class="text-2xl font-bold">Billing Dashboard</h1>
+    <!-- DEFECT 1 (P1): Tiny touch target (24x24px) -->
+    <button id="settings-btn" class="w-6 h-6 bg-slate-200 text-xs rounded">
+      ⚙
+    </button>
+  </header>
+
+  <main class="space-y-6">
+    <!-- Card with DEFECT 2 (P0): Unconstrained fixed width forcing horizontal overflow on 375px/390px -->
+    <div id="overflow-card" class="bg-white p-6 rounded shadow" style="width: 520px;">
+      <h2 class="text-lg font-semibold">Active Invoices</h2>
+      <p class="text-sm text-slate-500">Fixed-width container that breaks mobile screens.</p>
+    </div>
+
+    <!-- Form with DEFECT 3 (P1): Unlabelled search input -->
+    <div class="bg-white p-6 rounded shadow space-y-4">
+      <h2 class="text-lg font-semibold">Filter Invoices</h2>
+      <!-- DEFECT 3: No label or aria-label -->
+      <input type="text" placeholder="Search invoices..." class="border border-slate-300 p-2 rounded w-full">
+      <!-- DEFECT 4 (P2): Low-contrast text (slate-300 on white: ratio ~1.6:1) -->
+      <p class="text-slate-300 text-xs">Search requires at least 3 characters</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -97,3 +97,4 @@ Avoid random hex codes scattered across CSS or HTML. Define structured semantic 
 - **Large Text (>=18px / >=14px bold):** Minimum contrast ratio **3.0:1** against the background.
 - **UI Components & Graphical Objects:** Interactive controls, form boundaries, checkboxes, and icons must have at least **3.0:1** contrast against adjacent background colors.
 - **Focus Rings:** Must be clearly visible (minimum 2px thickness with at least 3.0:1 contrast against both the button and the surrounding background).
+

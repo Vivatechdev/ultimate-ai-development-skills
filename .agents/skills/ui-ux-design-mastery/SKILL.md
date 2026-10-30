@@ -257,3 +257,4 @@ A design task guided by this skill is complete when:
 2. All items in the Quality Assurance Checklist are verified.
 3. Actual visual rendering in a browser or preview container has been inspected for alignment, typographic balance, and responsive stability.
 4. Zero visual clichés or unhandled component states remain.
+

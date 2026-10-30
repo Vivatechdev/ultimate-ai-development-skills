@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`visual-qa-and-ui-audit`**:
+  - `SKILL.md`: 8-step visual QA and remediation procedure across 5 standard viewport widths (375px, 390px, 768px, 1280px, 1440px).
+  - `references/visual-audit-checklist.md`: 14-point category audit checklist covering typography, alignment, contrast, touch targets, and overflow.
+  - `references/defect-severity-matrix.md`: Standard triage rubric (P0 Blocker, P1 Critical, P2 Major, P3 Minor), defect template, and remediation protocol.
+  - `references/viewport-testing-matrix.md`: Target breakpoints, failure modes, and touch vs pointer verification guidelines.
+  - `scripts/overflow-and-qa-detector.js`: Dual-mode browser runtime snippet and Node.js static analyzer detecting horizontal overflow, sub-44px targets, and unlabelled inputs.
+  - `examples/testbed/`: Complete practical test scenario demonstrating defect discovery, classification, targeted code fixes, and regression verification (`run-audit-test.js`).
 - Completed initial release of skill **`ui-ux-design-mastery`**:
   - `SKILL.md`: Core workflow, 10-section structure, mathematical typography, 60-30-10 color rule, and WCAG 2.2 AA accessibility standards.
   - `references/anti-ai-design-checklist.md`: Rigorous filter to eliminate synthetic "AI slop" clichés (gradient ramps, floating blobs, pervasive glassmorphism, 3-column cards).

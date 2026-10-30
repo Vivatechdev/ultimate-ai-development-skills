@@ -105,3 +105,4 @@ Every product demands a distinct visual identity rooted in its market, user psyc
 | **Operations / Internal Tools** | Data-Dense & Operational | Swiss Typographic |
 | **Consumer Apps / EdTech** | Playful & Human | Minimalist |
 | **Luxury / Real Estate / Art** | Luxury & Craft | Editorial |
+

@@ -72,3 +72,4 @@ export function FlatButton(props: ButtonProps) {
   return <Button variant="secondary" {...props} />;
 }
 ```
+

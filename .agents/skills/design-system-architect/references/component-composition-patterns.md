@@ -112,3 +112,4 @@ Modals, drawers, and popovers require robust portal and focus lifecycle manageme
 3. **Focus Restoration:** When the overlay dismisses, return keyboard focus to the triggering element.
 4. **Escape Dismissal:** Pressing `Escape` must close the top-most active dialog immediately.
 5. **Scroll Locking:** Lock background body scroll (`overflow: hidden` on `document.body`) while the overlay is mounted to prevent dual-scrolling artifacts.
+

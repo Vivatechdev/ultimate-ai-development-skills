@@ -162,3 +162,4 @@ Avoid merely running an automated color invert filter. Senior systems engineers 
      - Level 2 (Modal / Popover): `#1B1C22`
 3. **Desaturate Accent Colors:** Highly saturated primary accents (e.g. vivid cobalt or crimson) vibrate painfully on dark backgrounds. Lighten and desaturate accents by 5–10% in dark mode to preserve readability and WCAG contrast.
 4. **Hairline Border Contrast:** In dark mode, borders (`border-subtle`) must maintain subtle definition (`rgba(255, 255, 255, 0.08)` to `0.12`).
+

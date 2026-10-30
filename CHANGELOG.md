@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`senior-fullstack-engineer`**:
+  - `SKILL.md`: Full-stack engineering workflow enforcing 3-tier backend architecture, zero-downtime database migrations, server-side RBAC, and production readiness checks.
+  - `references/layered-backend-architecture.md`: Controller-Service-Repository decoupling, dependency inversion, and cross-stack structural mappings.
+  - `references/database-design-and-migrations.md`: Primary key strategies (UUIDv7 vs BIGSERIAL), cascade safety, B-tree composite indexing, and Expand-and-Contract migrations.
+  - `references/auth-rbac-and-security.md`: HttpOnly/Secure/SameSite cookie sessions, refresh token rotation, server-side RBAC/ABAC, and direct-to-cloud presigned uploads.
+  - `references/api-design-and-error-handling.md`: Pragmatic RESTful resource modeling, cursor-based pagination, RFC 7807 Problem Details, and idempotency keys.
+  - `examples/fullstack-api-app/`: Self-contained 3-tier architecture application (`app.js`) and automated verification suite (`test-runner.js`).
 - Completed and verified skill **`design-system-architect`**:
   - `SKILL.md`: End-to-end design system methodology covering 15 core pillars, 3-tier DTCG token hierarchy, and non-destructive project integration.
   - `references/token-architecture-and-theming.md`: Multi-tier token specification (primitives, semantic aliases, component tokens), light/dark theming engine, and elevation/z-index scales.

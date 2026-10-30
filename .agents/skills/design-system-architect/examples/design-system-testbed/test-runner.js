@@ -75,3 +75,4 @@ if (allPassed) {
   console.error('Result: FAILED some architectural checks.');
   process.exit(1);
 }
+

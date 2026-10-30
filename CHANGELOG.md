@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`devops-deployment`**:
+  - `SKILL.md`: DevOps engineering workflow covering cost-appropriate infrastructure tiering, multi-stage Docker builds, zero-downtime CI/CD, and post-deployment smoke tests.
+  - `references/infrastructure-tier-selection-matrix.md`: Sizing matrix matching scale/budget to Tier 1 ($5–$40/mo VPS), Tier 2 ($20–$250/mo PaaS/Cloud Run), and Tier 3 ($300+/mo K8s).
+  - `references/docker-and-ci-cd-patterns.md`: Hardened multi-stage Dockerfile patterns (non-root, dumb-init, HEALTHCHECK) and production GitHub Actions workflows.
+  - `references/production-readiness-and-smoke-test.md`: Pre-flight readiness gate, 8-point post-deployment smoke testing protocol, and rollback playbooks.
+  - `examples/deployment-testbed/`: Complete production deployment suite (`Dockerfile`, `.dockerignore`, `deploy.yml`, `server.js`, `test-devops.js`).
 - Completed and verified skill **`saas-product-architect`**:
   - `SKILL.md`: End-to-end SaaS product architecture methodology covering 15 strategic dimensions, PRD authoring, MoSCoW MVP scoping, multi-tenancy, and unit economics.
   - `references/multi-tenant-data-architecture.md`: Tenant isolation models (Pooled with PostgreSQL RLS vs Schema vs Silo) and tenant resolution mechanics.

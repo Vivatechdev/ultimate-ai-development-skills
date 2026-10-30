@@ -99,3 +99,4 @@ Payment gateways dispatch webhooks asynchronously. Always process webhooks with 
 2. **`invoice.payment_failed`:** Set `subscription_status = 'past_due'`; send transactional dunning notification.
 3. **`customer.subscription.deleted`:** Set `subscription_status = 'canceled'`; downgrade tenant permissions to read-only.
 4. **Idempotency Store:** Record `event.id` in a `processed_webhook_events` table within a database transaction. If `event.id` has already been processed, return `200 OK` immediately.
+

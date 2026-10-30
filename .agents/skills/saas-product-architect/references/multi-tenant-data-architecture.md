@@ -75,3 +75,4 @@ How does the application know which tenant is making the request?
 3. **Session Header Resolution (`X-Tenant-Id` or JWT claim):**
    - Ideal for mobile apps, single-page apps (SPAs), and REST/GraphQL APIs.
    - Server validates that `req.user` has active membership in the requested `X-Tenant-Id`.
+

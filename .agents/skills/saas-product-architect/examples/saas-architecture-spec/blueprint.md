@@ -78,3 +78,4 @@
 - **Phase 2 (Week 3–4):** High-throughput ingest endpoint, telemetry storage, and real-time dashboard UI.
 - **Phase 3 (Week 5–6):** Stripe webhook processor, entitlement gating service, and automated team invites.
 - **Phase 4 (Week 7):** End-to-end integration testing, visual QA, and security audit sign-off.
+

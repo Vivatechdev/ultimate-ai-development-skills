@@ -126,3 +126,4 @@ console.log('[PASS] Entitlement: Canceled tenant blocked from resource creation'
 
 console.log('----------------------------------------------------');
 console.log('Result: ALL SAAS ARCHITECTURAL CHECKS PASSED.');
+

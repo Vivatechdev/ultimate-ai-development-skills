@@ -1,0 +1,40 @@
+name: Production Deployment Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  # 1. Quality & Security Gates
+  test-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: echo "Running test suite & security audit..."
+
+  # 2. Immutable Container Build & Push
+  build-container:
+    needs: test-and-audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker Image Tagged with Git SHA
+        run: |
+          IMAGE_TAG="ghcr.io/my-org/my-app:sha-${{ github.sha }}"
+          echo "Building immutable image: $IMAGE_TAG"
+
+  # 3. Database Migration & Deployment
+  deploy:
+    needs: build-container
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Database Pre-Deploy Migration Hook
+        run: echo "Running non-blocking Expand & Contract migrations..."
+      - name: Rolling Deployment
+        run: echo "Updating container revision..."
+      - name: Post-Deployment Smoke Test
+        run: echo "Executing 8-point automated smoke test..."

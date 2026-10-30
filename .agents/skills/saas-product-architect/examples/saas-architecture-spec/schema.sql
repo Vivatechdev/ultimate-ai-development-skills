@@ -76,3 +76,4 @@ ALTER TABLE robots ENABLE ROW LEVEL SECURITY;
 CREATE POLICY tenant_isolation_robots ON robots
   FOR ALL
   USING (tenant_id = NULLIF(current_setting('app.current_tenant_id', true), '')::UUID);
+

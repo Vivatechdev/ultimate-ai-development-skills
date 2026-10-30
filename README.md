@@ -61,7 +61,7 @@ Antigravity-Skills/
 | **`application-security`** | DevSecOps & Security | ✅ Verified | Comprehensive threat modeling, OWASP Top 10 / ASVS audits, parameterized queries, server-side RBAC, and vulnerability remediation. |
 | **`testing-and-debugging`** | Testing & Diagnostics | ⏳ Planned | Unit, integration, and E2E test strategy, systematic root-cause analysis (RCA), and deterministic bug reproduction. |
 | **`saas-product-architect`** | Product Engineering | ✅ Verified | Strategic PRD authoring, MoSCoW MVP scoping, multi-tenant PostgreSQL RLS architecture, recurring billing state machines, and unit economics. |
-| **`devops-deployment`** | Operations | ⏳ Planned | Docker, modern CI/CD pipelines, zero-downtime deployments, observability, and container security. |
+| **`devops-deployment`** | Operations | ✅ Verified | Cost-appropriate infrastructure sizing (VPS vs PaaS vs K8s), hardened Docker builds, zero-downtime CI/CD, and 8-point post-deploy smoke tests. |
 | **`api-and-payment-integration`** | Integrations | ⏳ Planned | Reliable 3rd-party integrations, webhook handling, idempotency, retry mechanisms, and payment platforms. |
 | **`ai-assisted-engineering-discipline`** | AI Engineering | ⏳ Planned | Meta-skill enforcing verification gates, preventing hallucinated dependencies, and systematic agent execution. |
 

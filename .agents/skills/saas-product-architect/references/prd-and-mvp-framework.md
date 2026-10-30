@@ -78,3 +78,4 @@ Aim for **75% to 85% SaaS Gross Margins** (Cost of Goods Sold / Hosting must not
    - Example: 50 requests/day $\times$ 1,000 tokens $\times$ \$0.001/1k tokens = \$1.50/month per user.
 4. **Transactional Email / SMS:** SendGrid/Postmark ($0.001 per email).
 5. **Payment Processing:** Stripe takes 2.9% + $0.30 per transaction.
+

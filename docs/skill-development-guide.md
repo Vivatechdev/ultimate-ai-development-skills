@@ -110,3 +110,4 @@ Every skill must be developed and verified using this 9-step lifecycle:
 7. **Empirical Task Testing:** Run the skill on an actual codebase task with an AI coding agent.
 8. **Iterate & Refine:** Fix failure modes discovered during practical testing.
 9. **Update Documentation:** Record additions and milestones in `CHANGELOG.md` and `README.md`.
+

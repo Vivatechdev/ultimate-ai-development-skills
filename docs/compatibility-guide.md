@@ -54,3 +54,4 @@ If an agent does not automatically index the YAML frontmatter:
 1. Provide the direct path to `SKILL.md` in your prompt:
    > *"Follow the workflow in `.agents/skills/testing-and-debugging/SKILL.md` to debug this failing test."*
 2. Or link the skill from your repository's primary AI instruction file (`CLAUDE.md`, `.cursorrules`, or `.windsurfrules`).
+

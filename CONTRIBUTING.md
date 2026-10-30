@@ -77,3 +77,4 @@ This project follows [Semantic Versioning](https://semver.org/):
 - **Major (X.0.0):** Significant structural revisions, breaking changes in skill specifications, or major reorganizations.
 - **Minor (0.X.0):** New skills added, substantial enhancements to existing workflows.
 - **Patch (0.0.X):** Clarifications, typo corrections, minor bug fixes, or documentation updates.
+

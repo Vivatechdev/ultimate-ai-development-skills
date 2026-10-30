@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanguard Dynamics — Industrial Robotics & Energy Architecture</title>
+  <meta name="description" content="Precision control systems, distributed robotics, and resilient grid infrastructure for high-throughput enterprise manufacturing." />
+  
+  <!-- Typography: Space Grotesk (Display), Inter (Body), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#F6F6F4',
+            surface: '#FFFFFF',
+            'surface-subtle': '#EFEFEA',
+            border: '#E2E2DC',
+            'border-strong': '#18181B',
+            ink: '#111215',
+            'ink-muted': '#55575E',
+            'ink-subtle': '#7E818C',
+            accent: '#0047FF', // Signal Industrial Cobalt
+            'accent-hover': '#0036CC',
+            amber: '#D97706',
+            emerald: '#059669',
+            crimson: '#DC2626',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom mathematical typography tracking & tabular numbers */
+    .tracking-display { letter-spacing: -0.035em; }
+    .tracking-label { letter-spacing: 0.08em; }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+
+    /* Focus ring standard */
+    :focus-visible {
+      outline: 2px solid #0047FF !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Subtle hair-line grid pattern (subtle engineering alignment lines, not glowing blobs) */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased selection:bg-accent selection:text-white">
+
+  <!-- ================= TOP STATUS BAR (Engineering Context) ================= -->
+  <div class="border-b border-border bg-surface text-ink-subtle text-xs py-1.5 px-4 sm:px-8 flex justify-between items-center font-mono">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald"></span>
+        <span class="text-ink font-medium">TELEMETRY: NOMINAL</span>
+      </span>
+      <span class="hidden md:inline text-border">|</span>
+      <span class="hidden md:inline">GLOBAL CLUSTER: V4.8.2 ACTIVE</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span>GRID STATUS: 99.982% EFFICIENCY</span>
+      <span class="hidden sm:inline text-border">|</span>
+      <span class="hidden sm:inline" id="current-utc">UTC 00:00:00</span>
+    </div>
+  </div>
+
+  <!-- ================= MAIN NAVIGATION ================= -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
+      <!-- Brand Logo & Identity -->
+      <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-8 h-8 bg-ink text-white flex items-center justify-center font-display font-bold text-lg rounded-sm transition-transform duration-150 group-hover:scale-95">
+          V
+        </div>
+        <div class="leading-none">
+          <span class="block font-display font-bold text-base tracking-tight text-ink">VANGUARD</span>
+          <span class="block font-mono text-[9px] uppercase tracking-label text-ink-subtle">Dynamics Corp</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-muted">
+        <a href="#systems" class="hover:text-ink transition-colors duration-150 py-1">Robotic Systems</a>
+        <a href="#architecture" class="hover:text-ink transition-colors duration-150 py-1">Grid Architecture</a>
+        <a href="#benchmarks" class="hover:text-ink transition-colors duration-150 py-1">Verified Benchmarks</a>
+        <a href="#specifications" class="hover:text-ink transition-colors duration-150 py-1">Specifications</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#telemetry" class="px-4 py-2 text-xs font-mono font-medium text-ink bg-surface-subtle border border-border hover:bg-surface hover:border-ink transition-all duration-150 rounded-sm">
+          Terminal Access
+        </a>
+        <a href="#inquire" class="px-4 py-2 text-xs font-mono font-medium text-white bg-accent hover:bg-accent-hover active:scale-[0.98] transition-all duration-150 rounded-sm">
+          Schedule Briefing
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="md:hidden p-2 text-ink hover:bg-surface-subtle rounded border border-border">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-border bg-surface px-6 py-4 space-y-3 font-mono text-sm">
+      <a href="#systems" class="block py-2 text-ink-muted hover:text-ink">Robotic Systems</a>
+      <a href="#architecture" class="block py-2 text-ink-muted hover:text-ink">Grid Architecture</a>
+      <a href="#benchmarks" class="block py-2 text-ink-muted hover:text-ink">Verified Benchmarks</a>
+      <a href="#specifications" class="block py-2 text-ink-muted hover:text-ink">Specifications</a>
+      <div class="pt-3 border-t border-border flex flex-col gap-2">
+        <a href="#inquire" class="w-full text-center py-2.5 text-xs text-white bg-accent font-medium rounded-sm">
+          Schedule Briefing
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION (Asymmetric Swiss / Industrial) ================= -->
+    <section class="border-b border-border bg-canvas bg-grid-pattern py-16 sm:py-24 px-4 sm:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left: Editorial Narrative & Command (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-border rounded-sm font-mono text-xs text-ink-muted">
+            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+            <span>SYSTEM SPECIFICATION: REV 2026.4</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-display text-ink leading-[1.05]">
+            Deterministic control for autonomous industrial powerplants.
+          </h1>
+
+          <p class="text-base sm:text-lg text-ink-muted leading-relaxed max-w-2xl">
+            Vanguard Dynamics builds fault-tolerant microgrids and robotic kinetic actuators. Engineered for high-throughput heavy manufacturing facilities that cannot tolerate single-phase drops or unverified control loops.
+          </p>
+
+          <!-- Action Pair with High Contrast -->
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <a href="#inquire" class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-white bg-ink hover:bg-black active:translate-y-px transition-all rounded-sm shadow-sm">
+              Deploy Testbed Cluster &rarr;
+            </a>
+            <a href="#specifications" class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono font-medium text-ink bg-surface border border-border hover:border-ink active:translate-y-px transition-all rounded-sm">
+              Download Architecture Spec [PDF]
+            </a>
+          </div>
+
+          <!-- Technical Spec Badges (Not Emojis!) -->
+          <div class="pt-8 border-t border-border/70 grid grid-cols-3 gap-6 font-mono">
+            <div>
+              <span class="block text-ink-subtle text-[11px] uppercase tracking-wider">Actuator Latency</span>
+              <span class="block text-xl font-bold text-ink tabular-nums mt-0.5">&lt; 180 &mu;s</span>
+            </div>
+            <div>
+              <span class="block text-ink-subtle text-[11px] uppercase tracking-wider">Safety Rating</span>
+              <span class="block text-xl font-bold text-ink tabular-nums mt-0.5">SIL-4 / ISO 13849</span>
+            </div>
+            <div>
+              <span class="block text-ink-subtle text-[11px] uppercase tracking-wider">Thermal Drift</span>
+              <span class="block text-xl font-bold text-ink tabular-nums mt-0.5">&plusmn;0.002 mm/K</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Live Telemetry Console (5 Cols) -->
+        <div class="lg:col-span-5 bg-surface border border-border rounded-sm shadow-sm p-5 space-y-4 font-mono text-xs">
+          <!-- Terminal Header -->
+          <div class="flex items-center justify-between border-b border-border pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-border-strong"></span>
+              <span class="font-bold text-ink tracking-tight">KINETIC POD #04</span>
+            </div>
+            <span class="px-2 py-0.5 rounded bg-surface-subtle text-ink-subtle text-[10px]">REAL-TIME FEED</span>
+          </div>
+
+          <!-- Status Rows -->
+          <div class="space-y-2.5 py-1">
+            <div class="flex justify-between items-center text-ink-muted">
+              <span>Operating Mode:</span>
+              <span class="text-ink font-semibold">SYNCHRONOUS CLOSED-LOOP</span>
+            </div>
+            <div class="flex justify-between items-center text-ink-muted">
+              <span>Bus Voltage (DC):</span>
+              <span class="text-ink font-semibold tabular-nums">748.2 VDC (&plusmn;0.3V)</span>
+            </div>
+            <div class="flex justify-between items-center text-ink-muted">
+              <span>Harmonic Distortion:</span>
+              <span class="text-emerald font-semibold tabular-nums">&lt; 0.04% THD</span>
+            </div>
+            <div class="flex justify-between items-center text-ink-muted">
+              <span>Current Shaft Load:</span>
+              <span class="text-ink font-semibold tabular-nums">412.8 Nm (68%)</span>
+            </div>
+          </div>
+
+          <!-- Mini SVG Telemetry Chart (Hardware Realism) -->
+          <div class="bg-canvas border border-border p-3 rounded-sm space-y-1.5">
+            <div class="flex justify-between text-[10px] text-ink-subtle">
+              <span>CYCLE JITTER (LAST 60 CYCLES)</span>
+              <span class="text-emerald font-semibold">STABLE</span>
+            </div>
+            <svg class="w-full h-12 stroke-accent fill-none" viewBox="0 0 300 48">
+              <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M0,24 Q25,22 50,26 T100,23 T150,25 T200,24 T250,26 L300,24" />
+              <line x1="0" y1="24" x2="300" y2="24" stroke="#E2E2DC" stroke-dasharray="3 3" stroke-width="1" />
+            </svg>
+            <div class="flex justify-between text-[10px] text-ink-subtle pt-1">
+              <span>0 &mu;s</span>
+              <span>&plusmn;12 &mu;s Peak Variance</span>
+              <span>Target: &lt; 25 &mu;s</span>
+            </div>
+          </div>
+
+          <!-- Interactive Control Switch -->
+          <div class="pt-2 flex items-center justify-between border-t border-border">
+            <span class="text-[11px] text-ink-muted">Diagnostic Feedback Loop:</span>
+            <button id="toggle-sim" class="px-3 py-1.5 bg-surface-subtle hover:bg-border text-ink font-medium text-[11px] rounded transition-colors duration-150">
+              Run Self-Test
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= TECHNICAL CAPABILITIES (Asymmetrical Tabbed Inspector) ================= -->
+    <section id="systems" class="py-20 px-4 sm:px-8 border-b border-border bg-surface">
+      <div class="max-w-7xl mx-auto space-y-12">
+        
+        <div class="max-w-2xl space-y-3">
+          <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Architectural Modules</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-display text-ink">
+            Engineered for physical deterministic safety.
+          </h2>
+          <p class="text-ink-muted text-base leading-relaxed">
+            Eliminate non-deterministic failures in automated lines. Each subsystem operates on dual-redundant microkernels with zero third-party cloud dependencies.
+          </p>
+        </div>
+
+        <!-- Interactive Spec Tabs -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Tab Navigation (4 cols) -->
+          <div class="lg:col-span-4 space-y-2 font-mono" role="tablist" aria-label="Architectural Subsystems">
+            <button role="tab" id="tab-module-1" aria-selected="true" aria-controls="module-1" class="spec-tab active w-full text-left p-4 border border-ink bg-canvas rounded-sm transition-all text-xs font-semibold text-ink flex justify-between items-center" data-target="module-1">
+              <span>01 / KINETIC DRIVES</span>
+              <span class="text-[10px] text-ink-subtle">&rarr;</span>
+            </button>
+            <button role="tab" id="tab-module-2" aria-selected="false" aria-controls="module-2" class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center" data-target="module-2">
+              <span>02 / RESILIENT POWER BUS</span>
+              <span class="text-[10px] text-ink-subtle">&rarr;</span>
+            </button>
+            <button role="tab" id="tab-module-3" aria-selected="false" aria-controls="module-3" class="spec-tab w-full text-left p-4 border border-border bg-surface hover:bg-canvas rounded-sm transition-all text-xs font-semibold text-ink-muted flex justify-between items-center" data-target="module-3">
+              <span>03 / ISOLATED TELEMETRY KERNEL</span>
+              <span class="text-[10px] text-ink-subtle">&rarr;</span>
+            </button>
+          </div>
+
+          <!-- Tab Content Display (8 cols) -->
+          <div class="lg:col-span-8 bg-canvas border border-border p-6 sm:p-8 rounded-sm">
+            <div id="module-1" role="tabpanel" aria-labelledby="tab-module-1" class="tab-panel space-y-6">
+              <div class="flex items-center justify-between border-b border-border pb-4">
+                <h3 class="font-display text-xl font-bold text-ink">K-Series Direct-Drive Servos</h3>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">PRECISION CLASS 0</span>
+              </div>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Direct electromagnetic coupling with no planetary backlash. Utilizing magnetic encoders with 28-bit absolute resolution, allowing micro-radian repeatable positioning under maximum dynamic torque reversals.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Peak Continuous Torque</span>
+                  <span class="text-base font-bold text-ink mt-1 block">1,850 Nm</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Backlash Rating</span>
+                  <span class="text-base font-bold text-ink mt-1 block">0.000 arcmin</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">MTBF Certified</span>
+                  <span class="text-base font-bold text-ink mt-1 block">120,000 hrs</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="module-2" role="tabpanel" aria-labelledby="tab-module-2" class="tab-panel hidden space-y-6">
+              <div class="flex items-center justify-between border-b border-border pb-4">
+                <h3 class="font-display text-xl font-bold text-ink">B-400 High-Density Busbars</h3>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded text-ink">SOLID STATE</span>
+              </div>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Liquid-cooled copper architecture capable of sustaining 1,200A peak discharge bursts with zero localized thermal pooling. Designed for instant sub-millisecond islanding during regional grid fluctuations.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Islanding Handshake</span>
+                  <span class="text-base font-bold text-ink mt-1 block">&lt; 400 &mu;s</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Thermal Margin</span>
+                  <span class="text-base font-bold text-ink mt-1 block">&Delta;T &lt; 14&deg;C</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">DC Bus Voltage</span>
+                  <span class="text-base font-bold text-ink mt-1 block">1,500 VDC</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="module-3" role="tabpanel" aria-labelledby="tab-module-3" class="tab-panel hidden space-y-6">
+              <div class="flex items-center justify-between border-b border-border pb-4">
+                <h3 class="font-display text-xl font-bold text-ink">Vanguard RTOS Kernel</h3>
+                <span class="font-mono text-xs px-2.5 py-1 bg-surface border border-border rounded-sm text-ink">FORMALLY VERIFIED</span>
+              </div>
+              <p class="text-ink-muted text-sm leading-relaxed">
+                Microkernel architecture formally proven in Coq. Guarantees deterministic upper-bound scheduling latency on hard real-time control routines with physical memory separation.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Interrupt Latency</span>
+                  <span class="text-base font-bold text-ink mt-1 block">&lt; 1.2 &mu;s</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Memory Footprint</span>
+                  <span class="text-base font-bold text-ink mt-1 block">4.8 MB ROM</span>
+                </div>
+                <div class="bg-surface p-4 border border-border rounded-sm">
+                  <span class="text-ink-subtle block text-[10px] uppercase">Safety Standard</span>
+                  <span class="text-base font-bold text-ink mt-1 block">DO-178C Level A</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VERIFIED SPECIFICATION TABLE ================= -->
+    <section id="benchmarks" class="py-20 px-4 sm:px-8 border-b border-border bg-canvas">
+      <div class="max-w-7xl mx-auto space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="space-y-2">
+            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Empirical Benchmarks</span>
+            <h2 class="font-display text-3xl font-bold tracking-display text-ink">
+              Verified physical laboratory measurements.
+            </h2>
+          </div>
+          <span class="font-mono text-xs text-ink-subtle">AUDITED BY T&Uuml;V S&Uuml;D MARCH 2026</span>
+        </div>
+
+        <!-- Structured Data Table with Tabular Numbers & Proper Spacing -->
+        <div class="bg-surface border border-border rounded-sm overflow-x-auto shadow-sm">
+          <table class="w-full text-left font-mono text-xs">
+            <thead class="bg-surface-subtle border-b border-border text-ink-muted uppercase tracking-wider">
+              <tr>
+                <th scope="col" class="py-3 px-4 font-semibold">Subsystem Node</th>
+                <th scope="col" class="py-3 px-4 font-semibold">Operating Envelope</th>
+                <th scope="col" class="py-3 px-4 font-semibold text-right">RMS Jitter</th>
+                <th scope="col" class="py-3 px-4 font-semibold text-right">Slew Rate</th>
+                <th scope="col" class="py-3 px-4 font-semibold text-center">Certification</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border text-ink">
+              <tr class="hover:bg-canvas transition-colors">
+                <td class="py-3.5 px-4 font-semibold">V-Kinetic 400 Core</td>
+                <td class="py-3.5 px-4 text-ink-muted">-40&deg;C to +85&deg;C (Continuous)</td>
+                <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 14 &mu;s</td>
+                <td class="py-3.5 px-4 text-right tabular-nums">480 rad/s&sup2;</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-canvas transition-colors">
+                <td class="py-3.5 px-4 font-semibold">B-Grid Matrix 120</td>
+                <td class="py-3.5 px-4 text-ink-muted">0 - 1,500 VDC (Bi-Directional)</td>
+                <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 28 &mu;s</td>
+                <td class="py-3.5 px-4 text-right tabular-nums">1,200 A/ms</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-canvas transition-colors">
+                <td class="py-3.5 px-4 font-semibold">RTOS Node Supervisor</td>
+                <td class="py-3.5 px-4 text-ink-muted">Dual-Core Lockstep Cortex-R52</td>
+                <td class="py-3.5 px-4 text-right tabular-nums font-semibold">&lt; 0.8 &mu;s</td>
+                <td class="py-3.5 px-4 text-right tabular-nums">N/A (Compute)</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald/10 text-emerald">PASSED</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TECHNICAL BRIEFING / CONSULTATION INQUIRY ================= -->
+    <section id="inquire" class="py-20 px-4 sm:px-8 border-b border-border bg-surface">
+      <div class="max-w-4xl mx-auto">
+        <div class="border border-border bg-canvas p-8 sm:p-12 rounded-sm shadow-sm space-y-8">
+          <div class="space-y-2 border-b border-border pb-6">
+            <span class="font-mono text-xs text-accent uppercase tracking-label font-semibold">Confidential Engineering Inquiry</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-display text-ink">
+              Schedule technical architecture consultation.
+            </h2>
+            <p class="text-ink-muted text-sm leading-relaxed">
+              Direct access to our senior hardware and control systems architects. We provide full NDA compliance prior to reviewing CAD files or facility electrical schematics.
+            </p>
+          </div>
+
+          <form id="consult-form" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Work Email -->
+              <div class="space-y-1.5">
+                <label for="work-email" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
+                  Corporate Email <span class="text-crimson">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="work-email"
+                  required
+                  placeholder="chief-engineer@company.com"
+                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
+                />
+              </div>
+
+              <!-- Facility Throughput Tier -->
+              <div class="space-y-1.5">
+                <label for="facility-tier" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
+                  Planned Deployment Scope <span class="text-crimson">*</span>
+                </label>
+                <select
+                  id="facility-tier"
+                  class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
+                >
+                  <option value="testbed">Laboratory Testbed (&lt; 5 Nodes)</option>
+                  <option value="pilot">Pilot Manufacturing Line (5 - 25 Nodes)</option>
+                  <option value="enterprise">Full Plant Retrofit (&gt; 25 Nodes)</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Technical Requirements Note -->
+            <div class="space-y-1.5">
+              <label for="notes" class="block font-mono text-xs font-semibold text-ink uppercase tracking-wider">
+                Electrical Bus & Cycle Target Notes
+              </label>
+              <textarea
+                id="notes"
+                rows="3"
+                placeholder="Specify peak current requirements, existing PLC protocols (EtherCAT, PROFINET), and installation timeframe..."
+                class="w-full px-3.5 py-2.5 text-sm bg-surface border border-border text-ink rounded-sm placeholder:text-ink-subtle focus:outline-none focus:border-ink focus:ring-1 focus:ring-ink transition-all"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button with Explicit Interactive & Loading State -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+              <div class="font-mono text-xs text-ink-subtle flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald"></span>
+                <span>NDA Handshake Protocol Automated</span>
+              </div>
+              <button
+                type="submit"
+                id="submit-btn"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs font-semibold text-white bg-ink hover:bg-black active:scale-[0.98] transition-all rounded-sm disabled:opacity-50 disabled:pointer-events-none"
+              >
+                <span id="btn-text">Submit Architecture Review</span>
+                <svg id="btn-spinner" class="hidden animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Feedback Notice Container -->
+            <div id="form-feedback" class="hidden p-4 rounded-sm font-mono text-xs"></div>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-surface border-t border-border py-12 px-4 sm:px-8 font-mono text-xs text-ink-muted">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-border pb-8">
+        <div>
+          <span class="font-display font-bold text-base text-ink block">VANGUARD DYNAMICS</span>
+          <span class="text-ink-subtle text-[11px]">Industrial Control Architecture & Autonomous Robotics</span>
+        </div>
+        <div class="flex flex-wrap gap-6 text-ink-muted">
+          <a href="#" class="hover:text-ink transition-colors">Documentation</a>
+          <a href="#" class="hover:text-ink transition-colors">Security Disclosures</a>
+          <a href="#" class="hover:text-ink transition-colors">T&Uuml;V Certifications</a>
+          <a href="#" class="hover:text-ink transition-colors">Contact Engineering</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-ink-subtle text-[11px]">
+        <p>&copy; 2026 Vanguard Dynamics Corp. All rights reserved. Registered under ISO 9001 / IEC 61508.</p>
+        <p>Built with UI/UX Design Mastery Standards.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CLIENT INTERACTION SCRIPT ================= -->
+  <script>
+    // 1. Live UTC Clock Update
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toUTCString().split(' ')[4];
+      const el = document.getElementById('current-utc');
+      if (el) el.textContent = `UTC ${timeStr}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 2. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 3. Tab Switching Architecture
+    const tabs = document.querySelectorAll('.spec-tab');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active', 'border-ink', 'bg-canvas');
+          t.classList.add('border-border', 'bg-surface');
+          t.setAttribute('aria-selected', 'false');
+          t.querySelector('span:first-child').classList.replace('text-ink', 'text-ink-muted');
+        });
+        panels.forEach(p => p.classList.add('hidden'));
+
+        tab.classList.add('active', 'border-ink', 'bg-canvas');
+        tab.classList.remove('border-border', 'bg-surface');
+        tab.setAttribute('aria-selected', 'true');
+        tab.querySelector('span:first-child').classList.replace('text-ink-muted', 'text-ink');
+
+        const targetId = tab.getAttribute('data-target');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) targetPanel.classList.remove('hidden');
+      });
+    });
+
+    // 4. Form Submission Simulation with Loading & Feedback States
+    const consultForm = document.getElementById('consult-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const feedbackBox = document.getElementById('form-feedback');
+
+    consultForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Enter Loading State
+      submitBtn.disabled = true;
+      btnText.textContent = 'Verifying Credentials...';
+      btnSpinner.classList.remove('hidden');
+      feedbackBox.classList.add('hidden');
+
+      setTimeout(() => {
+        // Successful Response Simulation
+        submitBtn.disabled = false;
+        btnText.textContent = 'Submit Architecture Review';
+        btnSpinner.classList.add('hidden');
+
+        feedbackBox.classList.remove('hidden');
+        feedbackBox.className = 'p-4 rounded-sm font-mono text-xs bg-emerald/10 border border-emerald text-emerald';
+        feedbackBox.textContent = 'CONSULTATION DISPATCHED: Architectural briefcase transmitted. A senior systems engineer will establish encrypted communications within 4 business hours.';
+        consultForm.reset();
+      }, 1200);
+    });
+
+    // 5. Diagnostic Self-Test Simulation
+    const toggleSim = document.getElementById('toggle-sim');
+    toggleSim?.addEventListener('click', () => {
+      toggleSim.textContent = 'Running Self-Test...';
+      toggleSim.classList.add('opacity-50');
+      setTimeout(() => {
+        toggleSim.textContent = 'Diagnostics 100% OK';
+        toggleSim.classList.remove('opacity-50');
+        setTimeout(() => {
+          toggleSim.textContent = 'Run Self-Test';
+        }, 2000);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

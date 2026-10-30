@@ -104,3 +104,4 @@ To verify that your AI agent has loaded a skill:
 1. Open a session in your target project.
 2. Provide a prompt aligned with the skill's triggers (e.g., for `application-security`, prompt: *"Perform a security audit of our authentication endpoints"*).
 3. The agent should reference the skill's specific workflow, phases, and quality checklists in its reasoning and plan.
+

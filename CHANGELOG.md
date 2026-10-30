@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`application-security`**:
+  - `SKILL.md`: Security engineering workflow covering the 17 core pillars, CVSS 3.1 triage, threat modeling (STRIDE), and scoped security certifications.
+  - `references/owasp-top-10-and-asvs-checklist.md`: Comprehensive audit checklist mapped against OWASP Top 10 (2021) and ASVS v4.0.
+  - `references/vulnerability-remediation-guide.md`: Implementation recipes for parameterized SQL queries, IDOR/BOLA mitigation, DOMPurify XSS defense, Argon2id hashing, and HMAC webhook verification.
+  - `references/security-headers-and-cookies.md`: Baseline production HTTP headers (CSP, HSTS, X-Content-Type-Options) and hardened session cookie flags (`HttpOnly; Secure; SameSite=Lax`).
+  - `examples/security-audit-testbed/`: Complete security audit simulation demonstrating discovery, CVSS classification, remediation, and verification across 4 realistic vulnerability classes (`audit-and-exploit.js`).
 - Completed and verified skill **`senior-fullstack-engineer`**:
   - `SKILL.md`: Full-stack engineering workflow enforcing 3-tier backend architecture, zero-downtime database migrations, server-side RBAC, and production readiness checks.
   - `references/layered-backend-architecture.md`: Controller-Service-Repository decoupling, dependency inversion, and cross-stack structural mappings.

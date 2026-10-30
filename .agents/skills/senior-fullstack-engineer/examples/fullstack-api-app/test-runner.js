@@ -118,3 +118,4 @@ runTests().catch(err => {
   console.error('[FAIL] Architectural check failed:', err);
   process.exit(1);
 });
+

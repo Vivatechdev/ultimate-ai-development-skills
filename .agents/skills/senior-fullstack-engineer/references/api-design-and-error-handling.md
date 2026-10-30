@@ -102,3 +102,4 @@ Financial transactions, charge creations, and order submissions must support the
    - If found and completed: Returns cached response immediately without re-executing charge.
    - If found and pending: Returns `409 Conflict` (request in flight).
    - If not found: Stores key in Redis with 24h TTL, executes payment, saves result, and returns.
+

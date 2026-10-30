@@ -75,3 +75,4 @@ SET total = 1500.00, version = version + 1
 WHERE id = 'inv_123' AND version = 3;
 ```
 If rows affected is `0`, a concurrent update occurred. The application catches this and returns a `409 Conflict` prompting the user to refresh.
+

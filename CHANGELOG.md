@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.0] - 2026-10-31
+
+### Added
+- Completed and verified skill **`testing-and-debugging`**:
+  - `SKILL.md`: Testing & quality assurance workflow enforcing the testing pyramid, contract-safe test doubles, flaky test elimination, and systematic RCA.
+  - `references/testing-pyramid-and-test-doubles.md`: Trade-offs between Unit, Integration, and E2E layers; Meszaros' 5 test double taxonomy (Dummy, Stub, Spy, Mock, Fake); Classical vs Mockist schools.
+  - `references/root-cause-debugging-playbook.md`: Scientific 6-step debugging cycle, Minimal Reproducible Examples (MREs), race conditions, float arithmetic, memory leak diagnosis, and 5 Whys RCA template.
+  - `references/flaky-test-remediation.md`: Flakiness root causes (arbitrary sleeps, wall-clock coupling, leaked state, unseeded randomness) and deterministic test protocols.
+  - `examples/calculator-and-bug-reproduction/`: Complete testing testbed including buggy e-commerce engine (`buggy-cart.js`), deterministic bug reproduction harness (`reproduction-test.js`), production-hardened engine (`fixed-cart.js`), and 16-point automated regression test runner (`test-runner.js`).
+- Master library validation suite `scripts/validate-library.js` programmatically checking YAML frontmatter, directory structures, internal markdown links, and executing all 10 skill test runners.
+
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added

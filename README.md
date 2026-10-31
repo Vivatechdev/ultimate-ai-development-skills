@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Specification: Agent Skills](https://img.shields.io/badge/Spec-Agent%20Skills-blue.svg)](docs/skill-development-guide.md)
-[![Status: Alpha](https://img.shields.io/badge/Status-In%20Development-orange.svg)](#roadmap)
+[![Status: Release](https://img.shields.io/badge/Status-10%2F10%20Skills%20Verified-brightgreen.svg)](#planned-skills-catalog)
 
 A curated, professional, vendor-neutral library of specialized skills designed for AI coding agents. 
 
@@ -59,7 +59,7 @@ Antigravity-Skills/
 | **`design-system-architect`** | Design Systems | ✅ Verified | Structuring 3-tier design tokens, headless accessible components, theming layers (light/dark), and non-destructive project integration. |
 | **`senior-fullstack-engineer`** | Architecture | ✅ Verified | Idiomatic application architecture (Controller-Service-Repository), state management, REST API design, zero-downtime DB migrations, and server-side RBAC. |
 | **`application-security`** | DevSecOps & Security | ✅ Verified | Comprehensive threat modeling, OWASP Top 10 / ASVS audits, parameterized queries, server-side RBAC, and vulnerability remediation. |
-| **`testing-and-debugging`** | Testing & Diagnostics | ⏳ Planned | Unit, integration, and E2E test strategy, systematic root-cause analysis (RCA), and deterministic bug reproduction. |
+| **`testing-and-debugging`** | Testing & Diagnostics | ✅ Verified | Unit, integration, and E2E test strategy, systematic root-cause analysis (RCA), and deterministic bug reproduction. |
 | **`saas-product-architect`** | Product Engineering | ✅ Verified | Strategic PRD authoring, MoSCoW MVP scoping, multi-tenant PostgreSQL RLS architecture, recurring billing state machines, and unit economics. |
 | **`devops-deployment`** | Operations | ✅ Verified | Cost-appropriate infrastructure sizing (VPS vs PaaS vs K8s), hardened Docker builds, zero-downtime CI/CD, and 8-point post-deploy smoke tests. |
 | **`api-and-payment-integration`** | Integrations | ✅ Verified | Third-party REST/GraphQL integration, Paystack, Flutterwave, Stripe, server-side verification, and HMAC webhook security. |

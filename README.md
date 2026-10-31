@@ -94,7 +94,7 @@ cp -r /path/to/ultimate-ai-development-skills/.agents/skills/application-securit
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/ultimate-ai-development-skills.git
+git clone https://github.com/Vivatechdev/ultimate-ai-development-skills.git
 
 # Copy all skills into your project workspace
 mkdir -p .agents/skills
@@ -173,7 +173,7 @@ This repository follows strict, long-term engineering governance documented in t
 ## 🐛 How to Report Issues
 
 Found a bug in a workflow, an outdated best practice, or flakiness in a test runner?
-1. Check the [Issue Tracker](https://github.com/username/ultimate-ai-development-skills/issues) to avoid duplicates.
+1. Check the [Issue Tracker](https://github.com/Vivatechdev/ultimate-ai-development-skills/issues) to avoid duplicates.
 2. Open an issue using the [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md).
 3. For security vulnerabilities, review our [Security Disclosure Policy](CONTRIBUTING.md#security-vulnerabilities).
 

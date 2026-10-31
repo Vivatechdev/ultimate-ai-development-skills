@@ -19,6 +19,7 @@ We are dedicated to providing a welcoming, inclusive, and professional environme
 3. **Vendor Neutrality:** Core skills must not rely on proprietary, closed toolchains. Platform-specific features (e.g. MCP tools or interactive sidecars) must be documented as optional enhancements with CLI fallbacks.
 4. **Empirically Verified:** No skill or rule may be submitted without an accompanying testbed or verification script proving its correctness on real-world code.
 5. **Zero Hallucinated Tools or Dependencies:** Never reference fabricated APIs, non-existent packages, or imaginary CLI commands.
+6. **Long-Term Governance & Maintenance:** All changes must comply with the 10 core invariants in the [Maintenance Guide](docs/maintenance-guide.md) (de-duplication, official doc alignment, and backwards compatibility).
 
 ---
 

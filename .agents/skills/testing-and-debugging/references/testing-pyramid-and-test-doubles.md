@@ -79,3 +79,4 @@ When integrating third-party APIs or microservices, mocking the external HTTP ca
 1. **Schema Validation on Doubles:** Validate mocked payloads against the provider's official JSON Schema or OpenAPI/TypeScript types.
 2. **Recorded Wire Mocks (VCR Pattern):** Record actual HTTP interactions in staging once, replay them during CI runs, and periodically refresh the recordings.
 3. **Consumer-Driven Contracts (Pact):** Define shared expectations between frontend and backend or microservice boundaries.
+

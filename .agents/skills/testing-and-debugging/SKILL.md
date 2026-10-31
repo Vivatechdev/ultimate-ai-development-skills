@@ -155,15 +155,15 @@ A complete reference implementation demonstrating reproduction and remediation o
 2. Concurrent race conditions on promo code redemption.
 3. Wall-clock boundary flakiness.
 
-- **Buggy Implementation:** [buggy-cart.js](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/examples/calculator-and-bug-reproduction/buggy-cart.js)
-- **Deterministic Reproduction:** [reproduction-test.js](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/examples/calculator-and-bug-reproduction/reproduction-test.js)
-- **Remediated Production Code:** [fixed-cart.js](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/examples/calculator-and-bug-reproduction/fixed-cart.js)
-- **Regression Suite:** [test-runner.js](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/examples/calculator-and-bug-reproduction/test-runner.js)
+- **Buggy Implementation:** [buggy-cart.js](examples/calculator-and-bug-reproduction/buggy-cart.js)
+- **Deterministic Reproduction:** [reproduction-test.js](examples/calculator-and-bug-reproduction/reproduction-test.js)
+- **Remediated Production Code:** [fixed-cart.js](examples/calculator-and-bug-reproduction/fixed-cart.js)
+- **Regression Suite:** [test-runner.js](examples/calculator-and-bug-reproduction/test-runner.js)
 
 ### Reference Guides
-- [Testing Pyramid & Test Doubles](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/references/testing-pyramid-and-test-doubles.md)
-- [Systematic Root-Cause Debugging (RCA)](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/references/root-cause-debugging-playbook.md)
-- [Flaky Test Remediation](file:///c:/Users/user/Desktop/DEV/Antigravity-Skills/.agents/skills/testing-and-debugging/references/flaky-test-remediation.md)
+- [Testing Pyramid & Test Doubles](references/testing-pyramid-and-test-doubles.md)
+- [Systematic Root-Cause Debugging (RCA)](references/root-cause-debugging-playbook.md)
+- [Flaky Test Remediation](references/flaky-test-remediation.md)
 
 ---
 
@@ -190,3 +190,4 @@ To verify that this skill has been applied successfully:
 - [ ] Automated regression test added to prevent recurrence.
 - [ ] Tests run deterministically without arbitrary sleep delays or unvirtualized clocks.
 - [ ] Full existing test suite verified green with zero regressions.
+

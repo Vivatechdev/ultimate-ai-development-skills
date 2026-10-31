@@ -1,84 +1,119 @@
 # Installation & Setup Guide
 
-This guide explains how to install and activate skills from the **Ultimate AI Development Skills** library across various AI coding agents and development environments.
+This guide details how to install, configure, and activate individual skills or the complete **Ultimate AI Development Skills** library across various AI coding agents and development environments.
 
 ---
 
-## 1. Directory Model: Workspace vs. Global
+## 1. Installation Scopes: Workspace vs. Global
 
 Agent skills can be installed in one of two scopes:
-1. **Workspace Scope (Recommended):** Installed inside a specific project repository under `.agents/skills/`. The skills become available to any developer or agent operating within that repository and can be committed to version control.
-2. **Global Scope:** Installed in the user's home or configuration directory, making skills available across all projects on the workstation.
+
+| Scope | Location | Visibility | Best For |
+| :--- | :--- | :--- | :--- |
+| **Workspace Scope** *(Recommended)* | `<project-root>/.agents/skills/<skill-name>/` | Single repository | Committing to Git; team-wide shared engineering standards; CI/CD validation |
+| **Global Scope** | `~/.gemini/config/skills/<skill-name>/` | All projects on your machine | Personal developer workstation; cross-project reuse without duplicating files |
 
 ---
 
-## 2. Agent-Specific Instructions
+## 2. Installing Individual Skills
 
-### Google Antigravity
+You do not need to install the entire library at once. Each skill is self-contained and independently functional.
 
-Google Antigravity natively discovers skills located in `.agents/skills/` within your workspace, as well as global skills configured in your Antigravity environment.
+### Option A: Install an Individual Skill into a Project Workspace
+To install a single skill (e.g., `application-security`) into an existing project:
 
-#### Workspace Installation:
-Copy the desired skill directory into `.agents/skills/` in your repository root:
+```bash
+# 1. Navigate to your project root
+cd /path/to/your/project
+
+# 2. Create the standard Agent Skills directory
+mkdir -p .agents/skills
+
+# 3. Copy the specific skill folder
+cp -r /path/to/ultimate-ai-development-skills/.agents/skills/application-security .agents/skills/
+```
+
+### Option B: Install the Complete Library into a Project Workspace
 ```bash
 # From your project root:
 mkdir -p .agents/skills
-cp -r path/to/Antigravity-Skills/.agents/skills/<skill-name> .agents/skills/
+cp -r /path/to/ultimate-ai-development-skills/.agents/skills/* .agents/skills/
 ```
 
-#### Global Installation:
-Place the skill into your Antigravity user configuration directory:
-- **Windows:** `%USERPROFILE%\.gemini\antigravity\skills\<skill-name>`
-- **macOS / Linux:** `~/.gemini/antigravity/skills/<skill-name>`
+---
 
-Antigravity will automatically index the `SKILL.md` frontmatter and activate the skill when matching tasks are prompted.
+## 3. Environment-Specific Instructions
+
+### Google Antigravity
+
+Google Antigravity natively discovers skills located in `.agents/skills/` within your workspace as well as global skills configured in your user profile.
+
+#### A. Workspace Installation
+Place skills in `<project-root>/.agents/skills/<skill-name>/`. Antigravity immediately indexes the `SKILL.md` frontmatter.
+
+#### B. Global Installation (Standalone IDE)
+Place skills into the documented global configuration directory:
+- **Windows:** `%USERPROFILE%\.gemini\config\skills\<skill-name>\` (e.g. `C:\Users\<username>\.gemini\config\skills\<skill-name>\`)
+- **macOS / Linux:** `~/.gemini/config/skills/<skill-name>/`
+
+To install all validated skills globally on your machine:
+```bash
+# Copy all skills into the global Antigravity discovery path
+mkdir -p ~/.gemini/config/skills
+cp -r .agents/skills/* ~/.gemini/config/skills/
+```
+
+To verify your global installation:
+```bash
+node scripts/verify-global-installation.js
+```
 
 ---
 
 ### Claude Code
 
-Claude Code supports project-level instructions and tool definitions.
+Claude Code supports project-level instructions via `CLAUDE.md` or dedicated skill directories.
 
 #### Workspace Installation:
-Place skills into `.claude/skills/` or `.agents/skills/` if using the open agent runner:
+Place skills into `.claude/skills/` or maintain them under `.agents/skills/`:
 ```bash
 mkdir -p .claude/skills
-cp -r path/to/Antigravity-Skills/.agents/skills/<skill-name> .claude/skills/
+cp -r .agents/skills/<skill-name> .claude/skills/
 ```
-Alternatively, you can reference the skill in `CLAUDE.md`:
+
+Or reference the skill directly in your `CLAUDE.md`:
 ```markdown
-# Instructions
-When working on architectural refactoring, refer to the guidelines in:
-`.agents/skills/senior-fullstack-engineer/SKILL.md`
+# Architectural Guidelines
+When working on backend architecture, refer to `.agents/skills/senior-fullstack-engineer/SKILL.md`.
+When reviewing security and authentication, refer to `.agents/skills/application-security/SKILL.md`.
 ```
 
 ---
 
 ### Cursor
 
-Cursor reads contextual instructions from `.cursorrules` or `.cursor/rules/`.
+Cursor reads contextual instructions from `.cursor/rules/` (`.mdc` format) or `.cursorrules`.
 
 #### Workspace Installation:
 1. Copy the skill into `.cursor/skills/<skill-name>` or `.agents/skills/<skill-name>`.
-2. To ensure automatic rule attachment in Cursor:
-   Create `.cursor/rules/<skill-name>.mdc` with frontmatter:
+2. Create `.cursor/rules/<skill-name>.mdc` with frontmatter:
    ```yaml
    ---
    description: Imports the <skill-name> Agent Skill
    globs: *
    ---
    ```
-   And reference or include the instructions from `.agents/skills/<skill-name>/SKILL.md`.
+   And include or reference the instructions from `.agents/skills/<skill-name>/SKILL.md`.
 
 ---
 
-### Windsurf
+### Windsurf (Cascade)
 
-Windsurf (Cascade) uses `.windsurfrules` or project workspace rule files.
+Windsurf references instructions defined in `.windsurfrules`.
 
 #### Workspace Installation:
 1. Keep the skills in `.agents/skills/<skill-name>/`.
-2. Add an import or link in your `.windsurfrules`:
+2. Add reference rules to `.windsurfrules`:
    ```markdown
    Refer to `.agents/skills/<skill-name>/SKILL.md` when performing tasks related to [domain].
    ```
@@ -87,21 +122,46 @@ Windsurf (Cascade) uses `.windsurfrules` or project workspace rule files.
 
 ### Roo Code / Cline
 
-Roo Code / Cline supports custom system instructions and room/role modes.
+Roo Code and Cline support custom system instructions and room/role configurations.
 
 #### Workspace Installation:
-Copy skills into `.clinerules/` or `.agents/skills/`:
+Copy skills into `.clinerules/`:
 ```bash
 mkdir -p .clinerules
-cp path/to/Antigravity-Skills/.agents/skills/<skill-name>/SKILL.md .clinerules/<skill-name>.md
+cp .agents/skills/<skill-name>/SKILL.md .clinerules/<skill-name>.md
 ```
 
 ---
 
-## 3. Verifying Skill Activation
+### GitHub Copilot
 
-To verify that your AI agent has loaded a skill:
-1. Open a session in your target project.
-2. Provide a prompt aligned with the skill's triggers (e.g., for `application-security`, prompt: *"Perform a security audit of our authentication endpoints"*).
-3. The agent should reference the skill's specific workflow, phases, and quality checklists in its reasoning and plan.
+Reference the skill directly in Copilot Chat:
+```text
+#file:.agents/skills/<skill-name>/SKILL.md Please apply these engineering standards to refactor the current file.
+```
 
+---
+
+## 4. Validating Your Installation
+
+Run the automated quality audit suite to verify that your installed skills are structurally sound and have passing practical testbeds:
+
+```bash
+# Validate workspace skills
+node scripts/validate-library.js
+
+# Verify global installation
+node scripts/verify-global-installation.js
+```
+
+---
+
+## 5. Updating Skills
+
+To update your installed skills to the latest version:
+1. Pull the latest release from the repository:
+   ```bash
+   git pull origin main
+   ```
+2. Re-copy the updated skill directory to your workspace or global folder.
+3. Check for breaking changes in [CHANGELOG.md](../CHANGELOG.md).

@@ -1,109 +1,33 @@
-# Ultimate AI Development Skills Library
+# Visual QA & UI Audit Specialist
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Specification: Agent Skills](https://img.shields.io/badge/Spec-Agent%20Skills-blue.svg)](docs/skill-development-guide.md)
-[![Status: Release](https://img.shields.io/badge/Status-10%2F10%20Skills%20Verified-brightgreen.svg)](#planned-skills-catalog)
+[![Agent Skills: Compatible](https://img.shields.io/badge/Agent%20Skills-Compliant-blue.svg)](../../docs/skill-development-guide.md)
+[![Status: Verified](https://img.shields.io/badge/Status-Verified-brightgreen.svg)](examples/testbed/run-audit-test.js)
 
-A curated, professional, vendor-neutral library of specialized skills designed for AI coding agents. 
-
-Built on the open **Agent Skills** specification, this library equips AI coding assistants (Google Antigravity, Claude Code, Cursor, Windsurf, Roo Code / Cline, and others) with the domain expertise, engineering discipline, and rigorous workflows expected of senior software engineers and architects.
+Systematic visual quality assurance, layout defect detection, and automated interface inspection across standard viewport widths (375px, 390px, 768px, 1280px, 1440px). Detects horizontal overflows, tap targets below 44px, and WCAG contrast failures.
 
 ---
 
-## 🎯 Mission & Philosophy
-
-Most AI coding assistants possess broad knowledge but default to generic suggestions, shallow prototypes, or brittle code unless guided by strict contextual instructions. 
-
-This library bridges the gap between raw LLM capabilities and production-grade engineering by providing:
-- **Pragmatic Workflows:** Step-by-step methodologies tested on real-world engineering tasks.
-- **Portability:** Strict compliance with the open Agent Skills specification (`SKILL.md` with YAML frontmatter) without proprietary vendor lock-in.
-- **Engineering Rigor:** Built-in verification steps, security checks, accessibility standards, and clean architecture principles.
-- **Modularity:** Focused, self-contained skills that work harmoniously without bloated prompts or redundant dependencies.
-
----
-
-## 📂 Repository Structure
-
-```text
-Antigravity-Skills/
-├── .agents/
-│   └── skills/
-│       ├── ui-ux-design-mastery/              # High-end UX/UI design and micro-interactions
-│       ├── visual-qa-and-ui-audit/            # Systematic UI verification and layout QA
-│       ├── design-system-architect/           # Scalable tokens, component libraries & theming
-│       ├── senior-fullstack-engineer/         # Production architectural patterns & best practices
-│       ├── application-security/              # Threat modeling, OWASP verification & safe coding
-│       ├── testing-and-debugging/             # Comprehensive testing, RCA & regression prevention
-│       ├── saas-product-architect/            # Multi-tenancy, billing logic & data modeling
-│       ├── devops-deployment/                 # CI/CD, containerization & cloud infrastructure
-│       ├── api-and-payment-integration/       # Resilient REST/GraphQL APIs, webhooks & Stripe/Paddle
-│       └── ai-assisted-engineering-discipline/# Structured prompt workflows, validation & pair programming
-├── docs/
-│   ├── skill-development-guide.md             # Standards, YAML schema, and authoring guidelines
-│   ├── installation-guide.md                  # Setup instructions across diverse AI agents
-│   └── compatibility-guide.md                 # Agent feature matrix and compatibility details
-├── CHANGELOG.md                               # Release history and milestone tracking
-├── CONTRIBUTING.md                            # Contribution workflows and PR standards
-├── LICENSE                                    # MIT License
-└── README.md                                  # Repository overview and quick start
-```
+## Quick Links
+- **Primary Instructions:** [SKILL.md](SKILL.md)
+- **QA References:**
+  - [Responsive Viewports & Edge Cases](references/responsive-viewports-and-edge-cases.md)
+  - [Visual Defect Taxonomy & Remediation](references/visual-defect-taxonomy-and-remediation.md)
+  - [Automated Audit Script Guide](references/automated-audit-script-guide.md)
+- **Detector Script:** [overflow-and-qa-detector.js](scripts/overflow-and-qa-detector.js)
+- **Practical Testbed:** [run-audit-test.js](examples/testbed/run-audit-test.js)
 
 ---
 
-## 🛠️ Planned Skills Catalog
-
-| Skill Name | Focus Area | Status | Description |
-| :--- | :--- | :---: | :--- |
-| **`ui-ux-design-mastery`** | UI/UX & Interaction | ✅ Verified | Crafting visually polished, intuitive interfaces with balanced typography, hierarchy, and micro-interactions. Eliminates generic AI aesthetics. |
-| **`visual-qa-and-ui-audit`** | Quality Assurance | ✅ Verified | Rigorous automated & visual inspection of responsive layouts, viewport edge cases (375px–1440px), defect triage, and code remediation. |
-| **`design-system-architect`** | Design Systems | ✅ Verified | Structuring 3-tier design tokens, headless accessible components, theming layers (light/dark), and non-destructive project integration. |
-| **`senior-fullstack-engineer`** | Architecture | ✅ Verified | Idiomatic application architecture (Controller-Service-Repository), state management, REST API design, zero-downtime DB migrations, and server-side RBAC. |
-| **`application-security`** | DevSecOps & Security | ✅ Verified | Comprehensive threat modeling, OWASP Top 10 / ASVS audits, parameterized queries, server-side RBAC, and vulnerability remediation. |
-| **`testing-and-debugging`** | Testing & Diagnostics | ✅ Verified | Unit, integration, and E2E test strategy, systematic root-cause analysis (RCA), and deterministic bug reproduction. |
-| **`saas-product-architect`** | Product Engineering | ✅ Verified | Strategic PRD authoring, MoSCoW MVP scoping, multi-tenant PostgreSQL RLS architecture, recurring billing state machines, and unit economics. |
-| **`devops-deployment`** | Operations | ✅ Verified | Cost-appropriate infrastructure sizing (VPS vs PaaS vs K8s), hardened Docker builds, zero-downtime CI/CD, and 8-point post-deploy smoke tests. |
-| **`api-and-payment-integration`** | Integrations | ✅ Verified | Third-party REST/GraphQL integration, Paystack, Flutterwave, Stripe, server-side verification, and HMAC webhook security. |
-| **`ai-assisted-engineering-discipline`** | AI Engineering | ✅ Verified | 12 core principles of AI-assisted engineering, ADR authoring, anti-hallucination verification gates, and cognitive load balancing. |
+## When to Activate
+- Performing visual quality assurance or responsive audits across multiple viewport sizes.
+- Diagnosing horizontal scrollbars or unwanted overflows on mobile.
+- Auditing tap-target dimensions (< 44px) or typography clipping.
+- Verifying WCAG 2.2 AA color contrast compliance.
 
 ---
 
-## 🚀 Quick Start & Installation
-
-Each skill adheres to the Agent Skills standard and is packaged with a primary `SKILL.md` entry point.
-
-### Using with Google Antigravity
-Link or copy desired skills into your workspace's `.agents/skills/` directory:
+## Verification
+Run the automated visual QA audit testbed:
 ```bash
-# Example: Install ui-ux-design-mastery into your project
-mkdir -p .agents/skills
-cp -r path/to/ultimate-ai-development-skills/.agents/skills/ui-ux-design-mastery .agents/skills/
+node examples/testbed/run-audit-test.js
 ```
-
-### Using with Other Agents
-For detailed instructions covering Claude Code, Cursor, Windsurf, Roo Code, and other systems, refer to the [Installation Guide](docs/installation-guide.md) and [Compatibility Guide](docs/compatibility-guide.md).
-
----
-
-## 📖 Skill Authoring Standards
-
-All skills in this repository must meet the following criteria:
-1. **YAML Frontmatter:** Valid `name` and `description` headers.
-2. **Explicit Activation Criteria:** Clearly specified triggers defining when the skill should activate.
-3. **Actionable Workflows:** Prescriptive, step-by-step methodologies rather than generic high-level advice.
-4. **Zero Proprietary Lock-In:** Core instructions remain agent-agnostic; agent-specific enhancements (e.g. MCP tooling) are marked optional.
-5. **Verified Quality:** No skill is marked complete without end-to-end practical validation.
-
-Review the [Skill Development Guide](docs/skill-development-guide.md) for full authoring conventions.
-
----
-
-## 🤝 Contributing
-
-We welcome community contributions! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting an issue or pull request.
-
----
-
-## 📄 License
-
-This repository is licensed under the [MIT License](LICENSE).
-

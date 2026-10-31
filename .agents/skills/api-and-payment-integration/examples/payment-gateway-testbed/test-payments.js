@@ -166,3 +166,4 @@ runPaymentTests().catch(err => {
   console.error('[FAIL] Integration check failed:', err);
   process.exit(1);
 });
+

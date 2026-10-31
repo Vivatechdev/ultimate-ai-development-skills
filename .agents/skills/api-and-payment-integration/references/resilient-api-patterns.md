@@ -106,3 +106,4 @@ If a third-party service suffers an extended outage, repeatedly hammering it wit
                  ├─ If Success ──> Return to [ Closed State ]
                  └─ If Failure ──> Return to [ Open State ]
 ```
+

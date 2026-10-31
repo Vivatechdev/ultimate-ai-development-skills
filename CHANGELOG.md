@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-alpha] - 2026-10-30
 
 ### Added
+- Completed and verified skill **`ai-assisted-engineering-discipline`**:
+  - `SKILL.md`: Foundational engineering meta-skill establishing the 12 Core Principles, 5-Point Complex Implementation Framework, and cognitive load balancing heuristics.
+  - `references/engineering-decision-record-template.md`: Standard lightweight Architectural Decision Record (ADR) template (Context, Options, Decision, Consequences, Maintenance playbook).
+  - `references/ai-verification-and-anti-hallucination.md`: 5 mandatory verification gates, dependency hallucination prevention, official API validation, and root cause analysis.
+  - `references/knowledge-transfer-heuristics.md`: Cognitive load balancing guidelines (Tier 1 trivial execution vs Tier 3 deep teaching) and core mental models.
+  - `examples/decision-records/`: Production ADR (`ADR-001-caching-strategy.md`), realistic race condition walkthrough (`example-workflow.md`), and automated compliance test suite (`test-discipline.js`).
 - Completed and verified skill **`api-and-payment-integration`**:
   - `SKILL.md`: Integration engineering workflow covering REST/GraphQL, OAuth 2.0 PKCE, Paystack, Flutterwave, Stripe, and webhook hardening.
   - `references/payment-providers-playbook.md`: Detailed guides for Paystack (HMAC-SHA512), Flutterwave (verif-hash), and Stripe (PaymentIntents & HMAC-SHA256).

@@ -99,3 +99,4 @@ Stripe amounts are passed in the smallest currency unit:
    - Webhook signature verifies `t + "." + rawBody` using HMAC-SHA256 with the endpoint secret.
    - **Replay Protection:** Verify that `timestamp` is within 5 minutes of current server time.
    - Use official SDK: `stripe.webhooks.constructEvent(rawBody, signatureHeader, endpointSecret)`.
+

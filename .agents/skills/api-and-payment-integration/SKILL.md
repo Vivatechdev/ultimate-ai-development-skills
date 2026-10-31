@@ -227,3 +227,4 @@ An API and payment integration task is complete when:
 3. Webhook endpoints enforce raw-body HMAC signature validation and idempotent processing.
 4. Outbound HTTP requests enforce timeouts, exponential backoff retries, and idempotency keys.
 5. All items on the Quality Assurance Checklist are verified via sandbox test transactions.
+

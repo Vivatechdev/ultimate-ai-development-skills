@@ -128,3 +128,4 @@ class StripeAdapter {
 }
 
 module.exports = { PaystackAdapter, FlutterwaveAdapter, StripeAdapter };
+

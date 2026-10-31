@@ -50,3 +50,4 @@ Senior engineers reason using foundational mental models. When transferring know
 3. **Idempotency & Replay Safety:** Why network packets duplicate, how deduplication keys ensure safe state mutations.
 4. **Defense-in-Depth:** Why client validation is cosmetic UX, why server boundaries and row-level policies are non-negotiable.
 5. **Blast Radius & Graceful Degradation:** Designing systems that fail partially (e.g. caching fallback) rather than collapsing entirely.
+

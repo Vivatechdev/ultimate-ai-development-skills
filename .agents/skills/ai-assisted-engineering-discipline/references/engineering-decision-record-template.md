@@ -46,3 +46,4 @@ Provide concrete instructions for future maintainers:
 - **How to debug failure modes:** Log messages to look for, diagnostic metrics.
 - **Under what conditions this decision should be revisited:** Thresholds (e.g., "Revisit if cache memory exceeds 2GB or hit rate drops below 85%").
 ```
+

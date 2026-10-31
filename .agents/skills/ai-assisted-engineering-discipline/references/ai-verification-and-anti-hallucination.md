@@ -55,3 +55,4 @@ Always document the **Root Cause Analysis (RCA)**:
 2. **The Mechanism:** Why it failed (e.g. "An asynchronous event loop tick executed before the database connection pool finished its TLS handshake").
 3. **The Root Fix:** Fixing the underlying invariant (e.g. "Awaiting the initialization promise before binding the HTTP router").
 4. **The Prevention:** How to prevent regressions (e.g. "Added a pre-flight unit test verifying uninitialized access throws a descriptive domain error").
+

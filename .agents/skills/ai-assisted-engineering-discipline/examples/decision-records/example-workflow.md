@@ -43,3 +43,4 @@ The agent delivers the code accompanied by structured architectural context:
 
 ### Step 4: Empirical Verification
 The agent writes and executes a concurrent integration test firing 10 simultaneous purchases against an item with only 1 unit remaining. 1 succeeds (201 Created), 9 receive 409 Conflict with zero negative inventory.
+

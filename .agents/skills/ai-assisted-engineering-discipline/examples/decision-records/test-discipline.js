@@ -85,3 +85,4 @@ if (allPassed) {
   console.error('Result: FAILED some discipline audit checks.');
   process.exit(1);
 }
+

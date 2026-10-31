@@ -43,3 +43,4 @@ The settings payload is compact (< 2KB per organization). An in-memory LRU cache
 - **Diagnostic Metrics:** Logged under `telemetry.cache.hit_rate`. Target hit rate: $\ge 95\%$.
 - **Debugging Pub/Sub:** Check `postgres.pubsub.connected` metric. If false, inspect connection pool listener logs.
 - **Revisit Threshold:** Re-evaluate and migrate to Redis if active organization count exceeds 500,000 or process memory overhead exceeds 250MB.
+

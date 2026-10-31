@@ -90,3 +90,4 @@ node scripts/verify-global-installation.js
 ```
 
 All 10 skills must pass Phase 1 (Structural Audit) and Phase 2 (Practical Testing) with **zero errors**.
+
